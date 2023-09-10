@@ -32,7 +32,10 @@ fi
 runApiPath="/repos/$owner/$repo/actions/runs/$runId${attemptNumber:+/attempts/$attemptNumber}"
 echo "Fetching $runApiPath" >&2
 runDetails=$(gh api "$runApiPath")
-#jq -er .run_attempt <<< "$runDetails"
+runAttempt=$(jq -er '.run_attempt' <<< "$runDetails")
+[[ "$runAttempt" -eq 0 ]] || {
+  echo 'Note: not the first run attempt, so ignoring unmatched log files.' >&2
+}
 
 # Fetch the run jobs.
 jobsApiPath=$(jq -er '.jobs_url' <<< "$runDetails")
