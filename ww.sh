@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# SPDX-FileCopyrightText: 2023 Paul Colby <git@colby.id.au>
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 set -o errexit -o noclobber -o nounset -o pipefail
 shopt -s inherit_errexit
 
