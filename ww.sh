@@ -52,7 +52,7 @@ echo "$(cat <<--
 	displayMode: compact
 	---
 	gantt
-	  title $(jq -er '.display_title' <<< "$runDetails") ($(jq -er '.name' <<< "$runDetails"), run $runId${attemptNumber:+, attempt #$attemptNumber})
+	  title $(jq -er '[.name,(.id|tostring),.run_attempt|tostring]|join(" #")' <<< "$runDetails")
 	  dateFormat YYYY-MM-DD HH:MM:SS.SSS
 	  %% $(jq -er '.html_url' <<< "$runDetails")
 	-
