@@ -32,24 +32,12 @@ fi
 runApiPath="/repos/$owner/$repo/actions/runs/$runId${attemptNumber:+/attempts/$attemptNumber}"
 echo "Fetching $runApiPath" >&2
 runDetails=$(gh api "$runApiPath")
-runAttempt=$(jq -er '.run_attempt' <<< "$runDetails")
-[[ "$runAttempt" -eq 0 ]] || {
-  echo 'Note: not the first run attempt, so ignoring unmatched log files.' >&2
-}
 
 # Fetch the run jobs. Note, we don't use $runDetails.jobs_url here, because it always lacks the
 # attempt number. I'd call this a bug in GitHub's REST API.
 jobsApiPath="/repos/$owner/$repo/actions/runs/$runId${attemptNumber:+/attempts/$attemptNumber}/jobs"
 echo "Fetching $jobsApiPath" >&2
 runJobs=$(gh api "$jobsApiPath")
-
-# Fetch the run logs.
-logsArchiveFileName="$CACHE_DIR/$owner-$repo-$runId${attemptNumber:+-$attemptNumber}.zip"
-[[ -s "$logsArchiveFileName" ]] || {
-  logsApiPath=$(jq -er '.logs_url' <<< "$runDetails")
-  echo "Fetching $logsApiPath to $logsArchiveFileName" >&2
-  gh api "$logsApiPath" > "$logsArchiveFileName"
-}
 
 echo "$(cat <<--
 	---
@@ -67,20 +55,12 @@ while IFS= read -r job; do
   jobName=$(jq -er '.name' <<< "$job")
   printf '\n  section %s\n' "$jobName"
   while IFS= read -r step; do
-    # echo "step: $step" #  {"conclusion":"success","name":"Set up job","number":1,"status":"completed"}
     stepName=$(jq -er '.name' <<< "$step")
     stepNumber=$(jq -er '.number' <<< "$step")
 
     # \todo add `crit` and/or `active` and/or `done` according the the step's .conclusion and/or .status.
 
-    printf -v stepLogFileName "%s/%d_%s.txt" \
-      "$(tr -d '/:|' <<< "${jobName//[/\\&}")" \
-      "$stepNumber" \
-      "$(tr -d '/:|' <<< "${stepName//[/\\&}")"
-
-    ts=( $(unzip -p "$logsArchiveFileName" "$stepLogFileName" | sed -En -e 's/ .*//' -e '1p;$p' || true) )
-    [[ -v ts ]] || continue
-
+    ts=( $(jq -er '[.started_at,.completed_at]|join(" ")' <<< "$step") )
     printf -v stepDuration '%09d' \
       "$(( $(date -d "${ts[1]}" '+%s%N') - $(date -d "${ts[0]}" '+%s%N') ))"
 
