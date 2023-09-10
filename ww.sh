@@ -37,8 +37,9 @@ runAttempt=$(jq -er '.run_attempt' <<< "$runDetails")
   echo 'Note: not the first run attempt, so ignoring unmatched log files.' >&2
 }
 
-# Fetch the run jobs.
-jobsApiPath=$(jq -er '.jobs_url' <<< "$runDetails")
+# Fetch the run jobs. Note, we don't use $runDetails.jobs_url here, because it always lacks the
+# attempt number. I'd call this a bug in GitHub's REST API.
+jobsApiPath="/repos/$owner/$repo/actions/runs/$runId${attemptNumber:+/attempts/$attemptNumber}/jobs"
 echo "Fetching $jobsApiPath" >&2
 runJobs=$(gh api "$jobsApiPath")
 
