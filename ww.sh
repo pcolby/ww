@@ -28,26 +28,33 @@ else
   showUsage; exit 1
 fi
 
-# Fetch the logs for this workflow run. Note, we can't use `gh run view --log` here, because that
-# command still has bugs dealing with unusual characters.
-logArchiveFileName="$CACHE_DIR/$owner-$repo-$runId${attemptNumber:+-$attemptNumber}.zip"
-[[ -s "$logArchiveFileName" ]] || {
-  apiPath="repos/$owner/$repo/actions/runs/$runId${attemptNumber:+/attempts/$attemptNumber}/logs"
-  echo "Fetching $apiPath to $logArchiveFileName" >&2
-  gh api "$apiPath" > "$logArchiveFileName"
+# Fetch the run details.
+runApiPath="/repos/$owner/$repo/actions/runs/$runId${attemptNumber:+/attempts/$attemptNumber}"
+echo "Fetching $runApiPath" >&2
+runDetails=$(gh api "$runApiPath")
+#jq -er .run_attempt <<< "$runDetails"
+
+# Fetch the run jobs.
+jobsApiPath=$(jq -er '.jobs_url' <<< "$runDetails")
+echo "Fetching $jobsApiPath" >&2
+runJobs=$(gh api "$jobsApiPath")
+
+# Fetch the run logs.
+logsArchiveFileName="$CACHE_DIR/$owner-$repo-$runId${attemptNumber:+-$attemptNumber}.zip"
+[[ -s "$logsArchiveFileName" ]] || {
+  logsApiPath=$(jq -er '.logs_url' <<< "$runDetails")
+  echo "Fetching $logsApiPath to $logsArchiveFileName" >&2
+  gh api "$logsApiPath" > "$logsArchiveFileName"
 }
 
-# Fetch the workflow run details, and begin a Mermaid Gantt chart.
-echo 'Fetching run details...' >&2
-runView=$(gh run view "$runId" --repo "$owner/$repo" --json 'workflowName,displayTitle,jobs,url')
 echo "$(cat <<--
 	---
 	displayMode: compact
 	---
 	gantt
-	  title $(jq -er '.displayTitle' <<< "$runView") ($(jq -er '.workflowName' <<< "$runView"), run $runId${attemptNumber:+, attempt #$attemptNumber})
+	  title $(jq -er '.display_title' <<< "$runDetails") ($(jq -er '.name' <<< "$runDetails"), run $runId${attemptNumber:+, attempt #$attemptNumber})
 	  dateFormat YYYY-MM-DD HH:MM:SS.SSS
-	  %% $(jq -er '.url' <<< "$runView")
+	  %% $(jq -er '.html_url' <<< "$runDetails")
 	-
 	)"
 
@@ -67,7 +74,7 @@ while IFS= read -r job; do
       "$stepNumber" \
       "$(tr -d '/:|' <<< "${stepName//[/\\&}")"
 
-    ts=( $(unzip -p "$logArchiveFileName" "$stepLogFileName" | sed -En -e 's/ .*//' -e '1p;$p' || true) )
+    ts=( $(unzip -p "$logsArchiveFileName" "$stepLogFileName" | sed -En -e 's/ .*//' -e '1p;$p' || true) )
     [[ -v ts ]] || continue
 
     printf -v stepDuration '%09d' \
@@ -78,4 +85,4 @@ while IFS= read -r job; do
       "$(date -d "${ts[0]}" '+%F %T.%N')" \
       "${stepDuration::-9}.${stepDuration: -9}"
   done < <(jq -ce '.steps|sort_by(.number)[]|select(.conclusion != "skipped")' <<< "$job")
-done < <(jq -ce '.jobs|sort_by([.startedAt,.completedAt])[]' <<< "$runView")
+done < <(jq -ce '.jobs|sort_by([.startedAt,.completedAt])[]' <<< "$runJobs")
