@@ -5,7 +5,7 @@
 set -o errexit -o noclobber -o nounset -o pipefail
 shopt -s inherit_errexit
 
-: "${CACHE_DIR:=.}"
+: "${DISPLAY_MODE:=compact}"
 
 function showUsage {
   echo "$(cat <<--
@@ -40,8 +40,8 @@ echo "Fetching $jobsApiPath" >&2
 runJobs=$(gh api "$jobsApiPath")
 
 # Generate Mermaid Gantt chart header.
-jq -er "$(cat <<-"-"
-	"---\ndisplayMode: compact\n---\ngantt\n" +
+jq -er --arg displayMode "$DISPLAY_MODE" "$(cat <<-"-"
+	"---\ndisplayMode: " + $displayMode + "\n---\ngantt\n" +
 	"  title " + ([.name,(.id|tostring),.run_attempt|tostring]|join(" #")) + "\n" +
 	"  dateFormat YYYY-MM-DDTHH:MM:SS.SSSZ\n  %% "+ .html_url
 	-
