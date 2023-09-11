@@ -44,9 +44,9 @@ jq -er "$(cat <<-"-"
 	def isodate(d): d|strptime("%FT%T.000%z")|mktime;
         def isodiff(d1;d2): isodate(d2)-isodate(d1);
         def safe(s): s|gsub("[:;#]";"");
-	.jobs[]|"\n  section " + safe(.name) + "\n" + (
-	  [.steps[]|"  " + safe(.name) + " : " + .started_at + ", " + (isodiff(.started_at;.completed_at)|tostring) + "s"]|
-	  join("\n")
-	)
+	.jobs[]|"\n  section " + safe(.name) + "\n" + ([
+	  .steps[]|select(.completed_at)|
+	  "  " + safe(.name) + " : " + .started_at + ", " + (isodiff(.started_at;.completed_at)|tostring) + "s"
+	]|join("\n"))
 	-
 	)" < <(gh api "$API_PATH/jobs")
