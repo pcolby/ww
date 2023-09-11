@@ -22,7 +22,7 @@ if [[ $# -eq 1 ]]; then
   ) || { echo "Invalid workflow run URL: $1" >&2; showUsage; exit 2; }
   [[ -n "$attemptNumber" ]] || unset attemptNumber
 elif [[ $# -ge 3 && $# -le 4 ]]; then
-  username=$1; repo=$2; runId=$3
+  owner=$1; repo=$2; runId=$3
   [[ $# -lt 4 ]] || attemptNumber=$4
 else
   showUsage; exit 1
