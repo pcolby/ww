@@ -6,6 +6,7 @@ set -o errexit -o noclobber -o nounset -o pipefail
 shopt -s inherit_errexit
 
 : "${DISPLAY_MODE:=compact}"
+: "${MIN_STEP_DURATION:=1}"
 
 function showUsage {
   echo "$(cat <<--
@@ -40,15 +41,16 @@ jq -er --arg displayMode "$DISPLAY_MODE" "$(cat <<-"-"
 	)" < <(gh api "$API_PATH")
 
 # Generate Mermaid Gantt chart sections.
-jq -er "$(cat <<-"-"
+jq -er --argjson minStepDuration "$MIN_STEP_DURATION" "$(cat <<-"-"
 	def isodate(d): d|strptime("%FT%T.000%z")|mktime;
         def isodiff(d1;d2): isodate(d2)-isodate(d1);
         def safe(s): s|gsub("[:;#]";"");
 	.jobs[]|"\n  section " + safe(.name) + "\n" + ([
 	  .steps[]|select(.completed_at)|
+	  (.+{duration:isodiff(.started_at;.completed_at)})|select(.duration>=$minStepDuration)|
 	  "  " + safe(.name) + " :" +
 	  if .conclusion != "success" then "crit, " else "" end +
-	  .started_at + ", " + (isodiff(.started_at;.completed_at)|tostring) + "s"
+	  .started_at + ", " + (.duration|tostring) + "s"
 	]|join("\n"))
 	-
 	)" < <(gh api "$API_PATH/jobs")
