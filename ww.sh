@@ -28,16 +28,7 @@ else
   showUsage; exit 1
 fi
 
-# Fetch the run details.
-runApiPath="/repos/$owner/$repo/actions/runs/$runId${attemptNumber:+/attempts/$attemptNumber}"
-echo "Fetching $runApiPath" >&2
-runDetails=$(gh api "$runApiPath")
-
-# Fetch the run jobs. Note, we don't use $runDetails.jobs_url here, because it always lacks the
-# attempt number. I'd call this a bug in GitHub's REST API.
-jobsApiPath="/repos/$owner/$repo/actions/runs/$runId${attemptNumber:+/attempts/$attemptNumber}/jobs"
-echo "Fetching $jobsApiPath" >&2
-runJobs=$(gh api "$jobsApiPath")
+readonly API_PATH="/repos/$owner/$repo/actions/runs/$runId${attemptNumber:+/attempts/$attemptNumber}"
 
 # Generate Mermaid Gantt chart header.
 jq -er --arg displayMode "$DISPLAY_MODE" "$(cat <<-"-"
@@ -45,7 +36,7 @@ jq -er --arg displayMode "$DISPLAY_MODE" "$(cat <<-"-"
 	"  title " + ([.name,(.id|tostring),.run_attempt|tostring]|join(" #")) + "\n" +
 	"  dateFormat YYYY-MM-DDTHH:MM:SS.SSSZ\n  %% "+ .html_url
 	-
-	)" <<< "$runDetails"
+	)" < <(gh api "$API_PATH")
 
 # Generate Mermaid Gantt chart sections.
 jq -er "$(cat <<-"-"
@@ -56,4 +47,4 @@ jq -er "$(cat <<-"-"
 	  join("\n")
 	)
 	-
-	)" <<< "$runJobs"
+	)" < <(gh api "$API_PATH/jobs")
