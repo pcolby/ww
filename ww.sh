@@ -45,28 +45,18 @@ echo "$(cat <<--
 	---
 	gantt
 	  title $(jq -er '[.name,(.id|tostring),.run_attempt|tostring]|join(" #")' <<< "$runDetails")
-	  dateFormat YYYY-MM-DD HH:MM:SS.SSS
+	  dateFormat YYYY-MM-DDTHH:MM:SS.SSSZ
 	  %% $(jq -er '.html_url' <<< "$runDetails")
 	-
 	)"
 
-# Add sections and tasks to the Gantt chart.
-while IFS= read -r job; do
-  jobName=$(jq -er '.name' <<< "$job")
-  printf '\n  section %s\n' "$jobName"
-  while IFS= read -r step; do
-    stepName=$(jq -er '.name' <<< "$step")
-    stepNumber=$(jq -er '.number' <<< "$step")
-
-    # \todo add `crit` and/or `active` and/or `done` according the the step's .conclusion and/or .status.
-
-    ts=( $(jq -er '[.started_at,.completed_at]|join(" ")' <<< "$step") )
-    printf -v stepDuration '%09d' \
-      "$(( $(date -d "${ts[1]}" '+%s%N') - $(date -d "${ts[0]}" '+%s%N') ))"
-
-    printf '  %s :%s %s, %1.3fs\n' "${stepName//:}" \
-      '' \
-      "$(date -d "${ts[0]}" '+%F %T.%N')" \
-      "${stepDuration::-9}.${stepDuration: -9}"
-  done < <(jq -ce '.steps|sort_by(.number)[]|select(.conclusion != "skipped")' <<< "$job")
-done < <(jq -ce '.jobs|sort_by([.startedAt,.completedAt])[]' <<< "$runJobs")
+# Generate Mermaid Gantt chart.
+jq -er "$(cat <<-"-"
+	def isodate(d): d|strptime("%FT%T.000%z")|mktime;
+        def isodiff(d1;d2): isodate(d2)-isodate(d1);
+	.jobs[]|"\n  section " + .name + "\n" + (
+	  [.steps[]|"  " + .name + " : " + .started_at + ", " + (isodiff(.started_at;.completed_at)|tostring) + "s"]|
+	  join("\n")
+	)
+	-
+	)" <<< "$runJobs"
