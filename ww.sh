@@ -46,7 +46,9 @@ jq -er "$(cat <<-"-"
         def safe(s): s|gsub("[:;#]";"");
 	.jobs[]|"\n  section " + safe(.name) + "\n" + ([
 	  .steps[]|select(.completed_at)|
-	  "  " + safe(.name) + " : " + .started_at + ", " + (isodiff(.started_at;.completed_at)|tostring) + "s"
+	  "  " + safe(.name) + " :" +
+	  if .conclusion != "success" then "crit, " else "" end +
+	  .started_at + ", " + (isodiff(.started_at;.completed_at)|tostring) + "s"
 	]|join("\n"))
 	-
 	)" < <(gh api "$API_PATH/jobs")
