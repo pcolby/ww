@@ -32,8 +32,9 @@ readonly API_PATH="/repos/$owner/$repo/actions/runs/$runId${attemptNumber:+/atte
 
 # Generate Mermaid Gantt chart header.
 jq -er --arg displayMode "$DISPLAY_MODE" "$(cat <<-"-"
+        def safe(s): s|gsub("[;#]";""); # Note, `:` is ok in titles.
 	"---\ndisplayMode: " + $displayMode + "\n---\ngantt\n" +
-	"  title " + ([.name,(.id|tostring),.run_attempt|tostring]|join(" #")) + "\n" +
+	"  title " + safe(.name) + " (run " + (.id|tostring) + ", attempt " + (.run_attempt|tostring) + ")\n" +
 	"  dateFormat YYYY-MM-DDTHH:MM:SS.SSSZ\n  %% "+ .html_url
 	-
 	)" < <(gh api "$API_PATH")
@@ -42,8 +43,9 @@ jq -er --arg displayMode "$DISPLAY_MODE" "$(cat <<-"-"
 jq -er "$(cat <<-"-"
 	def isodate(d): d|strptime("%FT%T.000%z")|mktime;
         def isodiff(d1;d2): isodate(d2)-isodate(d1);
-	.jobs[]|"\n  section " + .name + "\n" + (
-	  [.steps[]|"  " + .name + " : " + .started_at + ", " + (isodiff(.started_at;.completed_at)|tostring) + "s"]|
+        def safe(s): s|gsub("[:;#]";"");
+	.jobs[]|"\n  section " + safe(.name) + "\n" + (
+	  [.steps[]|"  " + safe(.name) + " : " + .started_at + ", " + (isodiff(.started_at;.completed_at)|tostring) + "s"]|
 	  join("\n")
 	)
 	-
