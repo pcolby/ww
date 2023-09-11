@@ -39,18 +39,15 @@ jobsApiPath="/repos/$owner/$repo/actions/runs/$runId${attemptNumber:+/attempts/$
 echo "Fetching $jobsApiPath" >&2
 runJobs=$(gh api "$jobsApiPath")
 
-echo "$(cat <<--
-	---
-	displayMode: compact
-	---
-	gantt
-	  title $(jq -er '[.name,(.id|tostring),.run_attempt|tostring]|join(" #")' <<< "$runDetails")
-	  dateFormat YYYY-MM-DDTHH:MM:SS.SSSZ
-	  %% $(jq -er '.html_url' <<< "$runDetails")
+# Generate Mermaid Gantt chart header.
+jq -er "$(cat <<-"-"
+	"---\ndisplayMode: compact\n---\ngantt\n" +
+	"  title " + ([.name,(.id|tostring),.run_attempt|tostring]|join(" #")) + "\n" +
+	"  dateFormat YYYY-MM-DDTHH:MM:SS.SSSZ\n  %% "+ .html_url
 	-
-	)"
+	)" <<< "$runDetails"
 
-# Generate Mermaid Gantt chart.
+# Generate Mermaid Gantt chart sections.
 jq -er "$(cat <<-"-"
 	def isodate(d): d|strptime("%FT%T.000%z")|mktime;
         def isodiff(d1;d2): isodate(d2)-isodate(d1);
