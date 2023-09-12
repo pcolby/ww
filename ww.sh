@@ -9,11 +9,10 @@ shopt -s inherit_errexit
 : "${MIN_STEP_DURATION:=1}"
 
 function showUsage {
-  echo "$(cat <<--
+  cat <<--
 	Usage: ${BASH_SOURCE[0]} <run_url> > mermaid.txt
 	   or: ${BASH_SOURCE[0]} <owner> <repo> <run_id> [<attempt_number>] > mermaid.txt
 	-
-	)"
 }
 
 # Parse the CLI's postional arguments.
