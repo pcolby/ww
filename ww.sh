@@ -53,4 +53,4 @@ jq -er --argjson minStepDuration "$MIN_STEP_DURATION" "$(cat <<-"-"
 	  .started_at + ", " + (.duration|tostring) + "s"
 	]|join("\n"))
 	-
-	)" < <(gh api "$API_PATH/jobs")
+	)" < <(gh api "$API_PATH/jobs" --paginate)
