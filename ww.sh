@@ -46,7 +46,8 @@ jq -er --argjson minStepDuration "$MIN_STEP_DURATION" "$(cat <<-"-"
         def safe(s): s|gsub("[:;#]";"");
 	.jobs[]|"\n  section " + safe(.name) + "\n" + ([
 	  .steps[]|select(.completed_at)|
-	  (.+{duration:isodiff(.started_at;.completed_at)})|select(.duration>=$minStepDuration)|
+	  (.+{duration:isodiff(.started_at;.completed_at)})|
+	  select(.duration>=$minStepDuration or .conclusion!="success")|
 	  "  " + safe(.name) + " :" +
 	  if .conclusion != "success" then "crit, " else "" end +
 	  .started_at + ", " + (.duration|tostring) + "s"
