@@ -279,4 +279,4 @@ non-compact mode (other tools, such as the [Mermaid Live Editor] have more compa
 
 [GitHub Actions]: https://github.com/features/actions
 [Mermaid]:        https://mermaid.js.org/ "Mermaid Diagramming and charting tool"
-[Mermaid Live Editor] https://mermaid.live "Mermaid Live Editor"
+[Mermaid Live Editor]: https://mermaid.live "Mermaid Live Editor"
