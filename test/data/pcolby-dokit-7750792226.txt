@@ -1,0 +1,1205 @@
+---
+displayMode: compact
+---
+gantt
+  title Build and Test (run 7750792226, attempt 1)
+  dateFormat YYYY-MM-DDTHH:MM:SS.SSSZ
+  %% https://github.com/pcolby/dokit/actions/runs/7750792226
+
+  section linux0 (clang, clang++, false)
+  Set up job :2024-02-02T14:00:22.000+11:00, 1s
+  Install Qt :2024-02-02T14:00:24.000+11:00, 93s
+  Build :2024-02-02T14:01:58.000+11:00, 125s
+  Test :2024-02-02T14:04:03.000+11:00, 1s
+  Build AppImage :2024-02-02T14:04:05.000+11:00, 11s
+  Upload build artifacts :2024-02-02T14:04:16.000+11:00, 1s
+  Upload AppImage :2024-02-02T14:04:17.000+11:00, 1s
+
+  section linux0 (gcc, g++, false)
+  Set up job :2024-02-02T14:00:22.000+11:00, 1s
+  Run actions/checkout@v4 :2024-02-02T14:00:23.000+11:00, 1s
+  Install Qt :2024-02-02T14:00:24.000+11:00, 104s
+  Build :2024-02-02T14:02:09.000+11:00, 104s
+  Test :2024-02-02T14:03:53.000+11:00, 2s
+  Build AppImage :2024-02-02T14:03:55.000+11:00, 12s
+  Upload build artifacts :2024-02-02T14:04:07.000+11:00, 1s
+  Upload AppImage :2024-02-02T14:04:08.000+11:00, 3s
+
+  section linux0 (gcc, g++, true)
+  Set up job :2024-02-02T14:00:21.000+11:00, 2s
+  Run actions/checkout@v4 :2024-02-02T14:00:23.000+11:00, 1s
+  Install Qt :2024-02-02T14:00:25.000+11:00, 105s
+  Install linuxdeploy :2024-02-02T14:02:10.000+11:00, 1s
+  Build :2024-02-02T14:02:11.000+11:00, 123s
+  Test :2024-02-02T14:04:14.000+11:00, 1s
+  Collate test coverage :2024-02-02T14:04:15.000+11:00, 5s
+  Upload test results :2024-02-02T14:04:20.000+11:00, 1s
+  Report parallel coverage to Codacy :2024-02-02T14:04:21.000+11:00, 2s
+  Report parallel coverage to Coveralls :2024-02-02T14:04:24.000+11:00, 2s
+  Build AppImage :2024-02-02T14:04:26.000+11:00, 13s
+  Upload build artifacts :2024-02-02T14:04:39.000+11:00, 1s
+  Upload AppImage :2024-02-02T14:04:40.000+11:00, 2s
+
+  section linux (5.9.9, clang, clang++, false)
+  Set up job :2024-02-02T14:00:24.000+11:00, 4s
+  Run actions/checkout@v4 :2024-02-02T14:00:28.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:29.000+11:00, 96s
+  Install Qt :2024-02-02T14:02:05.000+11:00, 40s
+  Install linuxdeploy :2024-02-02T14:02:45.000+11:00, 1s
+  Build :2024-02-02T14:02:46.000+11:00, 99s
+  Test :2024-02-02T14:04:25.000+11:00, 1s
+  Build AppImage :2024-02-02T14:04:26.000+11:00, 6s
+  Upload AppImage :2024-02-02T14:04:34.000+11:00, 2s
+
+  section mac (5.9.9, clang, clang++, false)
+  Set up job :2024-02-02T14:18:37.000+11:00, 8s
+  Run actions/checkout@v4 :2024-02-02T14:18:45.000+11:00, 3s
+  Install lcov :2024-02-02T14:18:48.000+11:00, 9s
+  Install Qt :2024-02-02T14:18:57.000+11:00, 35s
+  Build :2024-02-02T14:19:32.000+11:00, 115s
+  Test :2024-02-02T14:21:27.000+11:00, 1s
+  Make app bundle :2024-02-02T14:21:29.000+11:00, 8s
+  Upload artifacts :2024-02-02T14:21:38.000+11:00, 3s
+
+  section linux (5.9.9, gcc, g++, false)
+  Set up job :2024-02-02T14:00:24.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:00:27.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:28.000+11:00, 98s
+  Install Qt :2024-02-02T14:02:07.000+11:00, 43s
+  Install linuxdeploy :2024-02-02T14:02:50.000+11:00, 1s
+  Build :2024-02-02T14:02:51.000+11:00, 94s
+  Build AppImage :2024-02-02T14:04:26.000+11:00, 5s
+  Upload build artifacts :2024-02-02T14:04:31.000+11:00, 1s
+  Upload AppImage :2024-02-02T14:04:32.000+11:00, 3s
+
+  section mac (5.9.9, gcc-12, g++-12, false)
+  Set up job :2024-02-02T14:18:47.000+11:00, 6s
+  Run actions/checkout@v4 :2024-02-02T14:18:53.000+11:00, 3s
+  Install lcov :2024-02-02T14:18:56.000+11:00, 9s
+  Install Qt :2024-02-02T14:19:06.000+11:00, 50s
+  Build :2024-02-02T14:19:56.000+11:00, 257s
+  Test :2024-02-02T14:24:13.000+11:00, 5s
+  Make app bundle :2024-02-02T14:24:19.000+11:00, 15s
+  Upload artifacts :2024-02-02T14:24:34.000+11:00, 5s
+  Post Install Qt :2024-02-02T14:24:39.000+11:00, 1s
+  Post Run actions/checkout@v4 :2024-02-02T14:24:40.000+11:00, 1s
+  Complete job :2024-02-02T14:24:41.000+11:00, 1s
+
+  section linux (5.9.9, gcc, g++, true)
+  Set up job :2024-02-02T14:00:24.000+11:00, 2s
+  Install Tools :2024-02-02T14:00:27.000+11:00, 89s
+  Install Qt :2024-02-02T14:01:57.000+11:00, 39s
+  Build :2024-02-02T14:02:37.000+11:00, 100s
+  Collate test coverage :2024-02-02T14:04:18.000+11:00, 5s
+  Upload test results :2024-02-02T14:04:23.000+11:00, 1s
+  Report parallel coverage to Codacy :2024-02-02T14:04:24.000+11:00, 2s
+  Report parallel coverage to Coveralls :2024-02-02T14:04:26.000+11:00, 1s
+  Build AppImage :2024-02-02T14:04:28.000+11:00, 5s
+  Upload build artifacts :2024-02-02T14:04:33.000+11:00, 1s
+  Upload AppImage :2024-02-02T14:04:34.000+11:00, 1s
+
+  section mac (5.9.9, gcc-12, g++-12, true)
+  Set up job :2024-02-02T14:19:04.000+11:00, 8s
+  Run actions/checkout@v4 :2024-02-02T14:19:12.000+11:00, 3s
+  Install lcov :2024-02-02T14:19:15.000+11:00, 12s
+  Install Qt :2024-02-02T14:19:27.000+11:00, 45s
+  Build :2024-02-02T14:20:12.000+11:00, 217s
+  Test :2024-02-02T14:23:50.000+11:00, 2s
+  Collate test coverage :2024-02-02T14:23:52.000+11:00, 9s
+  Upload test results :2024-02-02T14:24:01.000+11:00, 1s
+  Report parallel coverage to Codacy :2024-02-02T14:24:03.000+11:00, 3s
+  Report parallel coverage to Coveralls :2024-02-02T14:24:07.000+11:00, 11s
+  Make app bundle :2024-02-02T14:24:18.000+11:00, 12s
+  Upload artifacts :2024-02-02T14:24:31.000+11:00, 5s
+  Post Run actions/checkout@v4 :2024-02-02T14:24:36.000+11:00, 1s
+
+  section linux (5.10.1, clang, clang++, false)
+  Set up job :2024-02-02T14:00:22.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:00:25.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:26.000+11:00, 95s
+  Install Qt :2024-02-02T14:02:01.000+11:00, 69s
+  Install linuxdeploy :2024-02-02T14:03:10.000+11:00, 1s
+  Build :2024-02-02T14:03:12.000+11:00, 106s
+  Build AppImage :2024-02-02T14:04:59.000+11:00, 6s
+  Upload build artifacts :2024-02-02T14:05:05.000+11:00, 1s
+  Upload AppImage :2024-02-02T14:05:06.000+11:00, 3s
+
+  section mac (5.10.1, clang, clang++, false)
+  Set up job :2024-02-02T14:00:28.000+11:00, 4s
+  Run actions/checkout@v4 :2024-02-02T14:00:32.000+11:00, 2s
+  Install lcov :2024-02-02T14:00:35.000+11:00, 7s
+  Install Qt :2024-02-02T14:00:43.000+11:00, 72s
+  Build :2024-02-02T14:01:56.000+11:00, 114s
+  Make app bundle :2024-02-02T14:03:52.000+11:00, 8s
+  Upload artifacts :2024-02-02T14:04:01.000+11:00, 3s
+  Complete job :2024-02-02T14:04:04.000+11:00, 1s
+
+  section linux (5.10.1, gcc, g++, false)
+  Set up job :2024-02-02T14:00:21.000+11:00, 3s
+  Install Tools :2024-02-02T14:00:25.000+11:00, 57s
+  Install Qt :2024-02-02T14:01:22.000+11:00, 56s
+  Install linuxdeploy :2024-02-02T14:02:18.000+11:00, 1s
+  Build :2024-02-02T14:02:19.000+11:00, 91s
+  Test :2024-02-02T14:03:50.000+11:00, 1s
+  Build AppImage :2024-02-02T14:03:52.000+11:00, 5s
+  Upload AppImage :2024-02-02T14:03:58.000+11:00, 1s
+
+  section win (5.9.9, NMake Makefiles, x86)
+  Set up job :2024-02-02T14:05:46.000+11:00, 5s
+  Run actions/checkout@v4 :2024-02-02T14:05:51.000+11:00, 6s
+  Install Qt :2024-02-02T14:05:57.000+11:00, 58s
+  Configure MSVC :2024-02-02T14:06:55.000+11:00, 7s
+  Build :2024-02-02T14:07:02.000+11:00, 118s
+  Test :2024-02-02T14:09:01.000+11:00, 2s
+  Make portable :2024-02-02T14:09:03.000+11:00, 1s
+  Upload artifacts :2024-02-02T14:09:04.000+11:00, 2s
+  Upload artifacts (portable) :2024-02-02T14:09:06.000+11:00, 2s
+  Post Run actions/checkout@v4 :2024-02-02T14:09:09.000+11:00, 1s
+
+  section mac (5.11.3, clang, clang++, false)
+  Set up job :2024-02-02T14:00:30.000+11:00, 5s
+  Run actions/checkout@v4 :2024-02-02T14:00:35.000+11:00, 2s
+  Install lcov :2024-02-02T14:00:37.000+11:00, 9s
+  Install Qt :2024-02-02T14:00:46.000+11:00, 84s
+  Build :2024-02-02T14:02:11.000+11:00, 119s
+  Test :2024-02-02T14:04:10.000+11:00, 1s
+  Make app bundle :2024-02-02T14:04:12.000+11:00, 11s
+  Upload artifacts :2024-02-02T14:04:24.000+11:00, 4s
+
+  section linux (5.10.1, gcc, g++, true)
+  Set up job :2024-02-02T14:00:21.000+11:00, 2s
+  Run actions/checkout@v4 :2024-02-02T14:00:23.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:24.000+11:00, 81s
+  Install Qt :2024-02-02T14:01:45.000+11:00, 49s
+  Install linuxdeploy :2024-02-02T14:02:34.000+11:00, 1s
+  Build :2024-02-02T14:02:35.000+11:00, 103s
+  Test :2024-02-02T14:04:18.000+11:00, 1s
+  Collate test coverage :2024-02-02T14:04:20.000+11:00, 4s
+  Report parallel coverage to Codacy :2024-02-02T14:04:25.000+11:00, 2s
+  Report parallel coverage to Coveralls :2024-02-02T14:04:27.000+11:00, 1s
+  Build AppImage :2024-02-02T14:04:29.000+11:00, 5s
+  Upload AppImage :2024-02-02T14:04:35.000+11:00, 1s
+
+  section win (5.9.9, NMake Makefiles, x86-64)
+  Set up job :2024-02-02T14:05:34.000+11:00, 5s
+  Run actions/checkout@v4 :2024-02-02T14:05:39.000+11:00, 4s
+  Install Qt :2024-02-02T14:05:43.000+11:00, 66s
+  Configure MSVC :2024-02-02T14:06:50.000+11:00, 6s
+  Build :2024-02-02T14:06:57.000+11:00, 120s
+  Test :2024-02-02T14:08:58.000+11:00, 2s
+  Make portable :2024-02-02T14:09:00.000+11:00, 2s
+  Upload artifacts :2024-02-02T14:09:02.000+11:00, 2s
+  Upload artifacts (portable) :2024-02-02T14:09:04.000+11:00, 3s
+  Post Run actions/checkout@v4 :2024-02-02T14:09:07.000+11:00, 1s
+
+  section mac (5.11.3, gcc-12, g++-12, false)
+  Set up job :2024-02-02T14:00:27.000+11:00, 5s
+  Run actions/checkout@v4 :2024-02-02T14:00:32.000+11:00, 2s
+  Install lcov :2024-02-02T14:00:34.000+11:00, 8s
+  Install Qt :2024-02-02T14:00:42.000+11:00, 76s
+  Build :2024-02-02T14:01:58.000+11:00, 185s
+  Test :2024-02-02T14:05:04.000+11:00, 1s
+  Make app bundle :2024-02-02T14:05:05.000+11:00, 11s
+  Upload artifacts :2024-02-02T14:05:16.000+11:00, 5s
+  Complete job :2024-02-02T14:05:21.000+11:00, 1s
+
+  section win (5.10.1, NMake Makefiles, x86-64)
+  Set up job :2024-02-02T14:04:29.000+11:00, 6s
+  Run actions/checkout@v4 :2024-02-02T14:04:35.000+11:00, 6s
+  Install Qt :2024-02-02T14:04:41.000+11:00, 160s
+  Configure MSVC :2024-02-02T14:07:22.000+11:00, 8s
+  Build :2024-02-02T14:07:30.000+11:00, 127s
+  Test :2024-02-02T14:09:38.000+11:00, 5s
+  Make portable :2024-02-02T14:09:43.000+11:00, 2s
+  Upload artifacts (portable) :2024-02-02T14:09:47.000+11:00, 3s
+  Post Run actions/checkout@v4 :2024-02-02T14:09:50.000+11:00, 1s
+
+  section linux (5.11.3, clang, clang++, false)
+  Set up job :2024-02-02T14:00:24.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:00:27.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:29.000+11:00, 106s
+  Install Qt :2024-02-02T14:02:15.000+11:00, 70s
+  Install linuxdeploy :2024-02-02T14:03:26.000+11:00, 1s
+  Build :2024-02-02T14:03:27.000+11:00, 113s
+  Test :2024-02-02T14:05:20.000+11:00, 1s
+  Build AppImage :2024-02-02T14:05:22.000+11:00, 6s
+  Upload build artifacts :2024-02-02T14:05:28.000+11:00, 1s
+  Upload AppImage :2024-02-02T14:05:29.000+11:00, 2s
+
+  section mac (5.11.3, gcc-12, g++-12, true)
+  Set up job :2024-02-02T14:00:28.000+11:00, 5s
+  Run actions/checkout@v4 :2024-02-02T14:00:33.000+11:00, 1s
+  Install lcov :2024-02-02T14:00:35.000+11:00, 8s
+  Install Qt :2024-02-02T14:00:43.000+11:00, 89s
+  Build :2024-02-02T14:02:13.000+11:00, 214s
+  Test :2024-02-02T14:05:48.000+11:00, 1s
+  Collate test coverage :2024-02-02T14:05:50.000+11:00, 8s
+  Upload test results :2024-02-02T14:05:58.000+11:00, 2s
+  Report parallel coverage to Codacy :2024-02-02T14:06:00.000+11:00, 4s
+  Report parallel coverage to Coveralls :2024-02-02T14:06:05.000+11:00, 8s
+  Make app bundle :2024-02-02T14:06:14.000+11:00, 11s
+  Upload artifacts :2024-02-02T14:06:26.000+11:00, 5s
+  Post Install Qt :2024-02-02T14:06:31.000+11:00, 1s
+  Complete job :2024-02-02T14:06:32.000+11:00, 1s
+
+  section linux (5.11.3, gcc, g++, false)
+  Set up job :2024-02-02T14:00:22.000+11:00, 2s
+  Run actions/checkout@v4 :2024-02-02T14:00:24.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:25.000+11:00, 78s
+  Install Qt :2024-02-02T14:01:43.000+11:00, 50s
+  Install linuxdeploy :2024-02-02T14:02:33.000+11:00, 1s
+  Build :2024-02-02T14:02:34.000+11:00, 95s
+  Test :2024-02-02T14:04:09.000+11:00, 1s
+  Build AppImage :2024-02-02T14:04:11.000+11:00, 6s
+  Upload AppImage :2024-02-02T14:04:18.000+11:00, 1s
+
+  section win (5.11.3, NMake Makefiles, x86)
+  Set up job :2024-02-02T14:04:46.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:04:49.000+11:00, 6s
+  Install Qt :2024-02-02T14:04:55.000+11:00, 137s
+  Configure MSVC :2024-02-02T14:07:13.000+11:00, 10s
+  Build :2024-02-02T14:07:24.000+11:00, 133s
+  Test :2024-02-02T14:09:37.000+11:00, 5s
+  Make portable :2024-02-02T14:09:42.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:09:44.000+11:00, 2s
+
+  section mac (5.12.12, clang, clang++, false)
+  Set up job :2024-02-02T14:00:23.000+11:00, 8s
+  Run actions/checkout@v4 :2024-02-02T14:00:31.000+11:00, 2s
+  Install lcov :2024-02-02T14:00:34.000+11:00, 8s
+  Install Qt :2024-02-02T14:00:43.000+11:00, 37s
+  Build :2024-02-02T14:01:21.000+11:00, 136s
+  Test :2024-02-02T14:03:38.000+11:00, 1s
+  Make app bundle :2024-02-02T14:03:41.000+11:00, 12s
+  Upload artifacts :2024-02-02T14:03:54.000+11:00, 4s
+
+  section linux (5.11.3, gcc, g++, true)
+  Set up job :2024-02-02T14:00:23.000+11:00, 2s
+  Install Tools :2024-02-02T14:00:26.000+11:00, 83s
+  Install Qt :2024-02-02T14:01:49.000+11:00, 51s
+  Build :2024-02-02T14:02:40.000+11:00, 109s
+  Collate test coverage :2024-02-02T14:04:30.000+11:00, 5s
+  Upload test results :2024-02-02T14:04:35.000+11:00, 1s
+  Report parallel coverage to Codacy :2024-02-02T14:04:36.000+11:00, 1s
+  Build AppImage :2024-02-02T14:04:39.000+11:00, 6s
+  Upload build artifacts :2024-02-02T14:04:45.000+11:00, 1s
+  Upload AppImage :2024-02-02T14:04:46.000+11:00, 1s
+
+  section win (5.11.3, NMake Makefiles, x86-64)
+  Set up job :2024-02-02T14:04:45.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:04:48.000+11:00, 6s
+  Install Qt :2024-02-02T14:04:54.000+11:00, 142s
+  Configure MSVC :2024-02-02T14:07:16.000+11:00, 7s
+  Build :2024-02-02T14:07:23.000+11:00, 116s
+  Capture build-output variables :2024-02-02T14:09:19.000+11:00, 1s
+  Test :2024-02-02T14:09:20.000+11:00, 3s
+  Make portable :2024-02-02T14:09:23.000+11:00, 1s
+  Upload artifacts :2024-02-02T14:09:24.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:09:25.000+11:00, 2s
+  Post Run actions/checkout@v4 :2024-02-02T14:09:27.000+11:00, 1s
+
+  section mac (5.12.12, gcc-12, g++-12, false)
+  Set up job :2024-02-02T14:04:07.000+11:00, 9s
+  Run actions/checkout@v4 :2024-02-02T14:04:16.000+11:00, 2s
+  Install lcov :2024-02-02T14:04:19.000+11:00, 12s
+  Install Qt :2024-02-02T14:04:32.000+11:00, 43s
+  Build :2024-02-02T14:05:16.000+11:00, 184s
+  Test :2024-02-02T14:08:21.000+11:00, 1s
+  Make app bundle :2024-02-02T14:08:23.000+11:00, 11s
+  Upload artifacts :2024-02-02T14:08:34.000+11:00, 33s
+
+  section linux (5.12.12, clang, clang++, false)
+  Set up job :2024-02-02T14:00:23.000+11:00, 2s
+  Install Tools :2024-02-02T14:00:26.000+11:00, 82s
+  Install Qt :2024-02-02T14:01:48.000+11:00, 33s
+  Build :2024-02-02T14:02:22.000+11:00, 112s
+  Test :2024-02-02T14:04:15.000+11:00, 1s
+  Upload test results :2024-02-02T14:04:16.000+11:00, 1s
+  Build AppImage :2024-02-02T14:04:17.000+11:00, 9s
+  Upload AppImage :2024-02-02T14:04:26.000+11:00, 1s
+
+  section win (5.12.12, MinGW Makefiles, x86-64)
+  Set up job :2024-02-02T14:04:46.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:04:49.000+11:00, 6s
+  Install Qt :2024-02-02T14:04:56.000+11:00, 91s
+  Build :2024-02-02T14:06:27.000+11:00, 187s
+  Test :2024-02-02T14:09:34.000+11:00, 2s
+  Upload test results :2024-02-02T14:09:36.000+11:00, 1s
+  Make portable :2024-02-02T14:09:37.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:09:39.000+11:00, 1s
+  Post Run actions/checkout@v4 :2024-02-02T14:09:40.000+11:00, 1s
+
+  section mac (5.12.12, gcc-12, g++-12, true)
+  Set up job :2024-02-02T14:04:29.000+11:00, 7s
+  Run actions/checkout@v4 :2024-02-02T14:04:36.000+11:00, 3s
+  Install lcov :2024-02-02T14:04:39.000+11:00, 12s
+  Install Qt :2024-02-02T14:04:51.000+11:00, 68s
+  Build :2024-02-02T14:06:00.000+11:00, 300s
+  Test :2024-02-02T14:11:01.000+11:00, 2s
+  Collate test coverage :2024-02-02T14:11:03.000+11:00, 14s
+  Upload test results :2024-02-02T14:11:18.000+11:00, 1s
+  Report parallel coverage to Codacy :2024-02-02T14:11:20.000+11:00, 4s
+  Report parallel coverage to Coveralls :2024-02-02T14:11:24.000+11:00, 13s
+  Make app bundle :2024-02-02T14:11:37.000+11:00, 15s
+  Upload artifacts :2024-02-02T14:11:53.000+11:00, 33s
+  Post Run actions/checkout@v4 :2024-02-02T14:12:26.000+11:00, 1s
+
+  section win (5.12.12, NMake Makefiles, x86)
+  Set up job :2024-02-02T14:04:48.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:04:51.000+11:00, 6s
+  Install Qt :2024-02-02T14:04:57.000+11:00, 70s
+  Configure MSVC :2024-02-02T14:06:08.000+11:00, 6s
+  Build :2024-02-02T14:06:14.000+11:00, 138s
+  Test :2024-02-02T14:08:32.000+11:00, 6s
+  Upload test results :2024-02-02T14:08:39.000+11:00, 1s
+  Make portable :2024-02-02T14:08:40.000+11:00, 1s
+  Upload artifacts :2024-02-02T14:08:41.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:08:42.000+11:00, 1s
+  Post Run actions/checkout@v4 :2024-02-02T14:08:44.000+11:00, 1s
+
+  section linux (5.12.12, gcc, g++, false)
+  Set up job :2024-02-02T14:00:22.000+11:00, 2s
+  Install Tools :2024-02-02T14:00:24.000+11:00, 56s
+  Install Qt :2024-02-02T14:01:21.000+11:00, 51s
+  Install linuxdeploy :2024-02-02T14:02:12.000+11:00, 1s
+  Build :2024-02-02T14:02:13.000+11:00, 96s
+  Test :2024-02-02T14:03:49.000+11:00, 1s
+  Upload test results :2024-02-02T14:03:50.000+11:00, 1s
+  Build AppImage :2024-02-02T14:03:51.000+11:00, 8s
+  Upload AppImage :2024-02-02T14:04:00.000+11:00, 1s
+
+  section mac (5.13.2, clang, clang++, false)
+  Set up job :2024-02-02T14:04:50.000+11:00, 6s
+  Run actions/checkout@v4 :2024-02-02T14:04:56.000+11:00, 2s
+  Install lcov :2024-02-02T14:04:59.000+11:00, 9s
+  Install Qt :2024-02-02T14:05:08.000+11:00, 53s
+  Build :2024-02-02T14:06:02.000+11:00, 137s
+  Test :2024-02-02T14:08:20.000+11:00, 1s
+  Upload test results :2024-02-02T14:08:21.000+11:00, 1s
+  Make app bundle :2024-02-02T14:08:23.000+11:00, 11s
+  Upload artifacts :2024-02-02T14:08:34.000+11:00, 5s
+
+  section win (5.12.12, NMake Makefiles, x86-64)
+  Set up job :2024-02-02T14:04:48.000+11:00, 2s
+  Run actions/checkout@v4 :2024-02-02T14:04:51.000+11:00, 6s
+  Install Qt :2024-02-02T14:04:57.000+11:00, 58s
+  Configure MSVC :2024-02-02T14:05:56.000+11:00, 10s
+  Build :2024-02-02T14:06:06.000+11:00, 143s
+  Test :2024-02-02T14:08:30.000+11:00, 5s
+  Upload test results :2024-02-02T14:08:35.000+11:00, 1s
+  Make portable :2024-02-02T14:08:36.000+11:00, 2s
+  Upload artifacts (portable) :2024-02-02T14:08:40.000+11:00, 1s
+  Post Run actions/checkout@v4 :2024-02-02T14:08:42.000+11:00, 1s
+
+  section linux (5.12.12, gcc, g++, true)
+  Set up job :2024-02-02T14:00:23.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:00:26.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:27.000+11:00, 104s
+  Install Qt :2024-02-02T14:02:12.000+11:00, 43s
+  Install linuxdeploy :2024-02-02T14:02:56.000+11:00, 1s
+  Build :2024-02-02T14:02:57.000+11:00, 110s
+  Collate test coverage :2024-02-02T14:04:49.000+11:00, 4s
+  Upload test results :2024-02-02T14:04:54.000+11:00, 1s
+  Report parallel coverage to Codacy :2024-02-02T14:04:55.000+11:00, 2s
+  Report parallel coverage to Coveralls :2024-02-02T14:04:57.000+11:00, 2s
+  Build AppImage :2024-02-02T14:04:59.000+11:00, 9s
+  Upload build artifacts :2024-02-02T14:05:08.000+11:00, 1s
+  Upload AppImage :2024-02-02T14:05:09.000+11:00, 3s
+
+  section mac (5.13.2, gcc-12, g++-12, false)
+  Set up job :2024-02-02T14:05:38.000+11:00, 7s
+  Run actions/checkout@v4 :2024-02-02T14:05:45.000+11:00, 2s
+  Install lcov :2024-02-02T14:05:47.000+11:00, 8s
+  Install Qt :2024-02-02T14:05:55.000+11:00, 38s
+  Build :2024-02-02T14:06:34.000+11:00, 163s
+  Test :2024-02-02T14:09:17.000+11:00, 2s
+  Upload test results :2024-02-02T14:09:19.000+11:00, 1s
+  Make app bundle :2024-02-02T14:09:20.000+11:00, 10s
+  Upload artifacts :2024-02-02T14:09:31.000+11:00, 4s
+
+  section win (5.13.2, MinGW Makefiles, x86-64)
+  Set up job :2024-02-02T14:04:49.000+11:00, 5s
+  Run actions/checkout@v4 :2024-02-02T14:04:54.000+11:00, 6s
+  Install Qt :2024-02-02T14:05:01.000+11:00, 91s
+  Build :2024-02-02T14:06:32.000+11:00, 180s
+  Test :2024-02-02T14:09:33.000+11:00, 1s
+  Upload test results :2024-02-02T14:09:34.000+11:00, 1s
+  Make portable :2024-02-02T14:09:35.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:09:38.000+11:00, 2s
+  Post Run actions/checkout@v4 :2024-02-02T14:09:40.000+11:00, 1s
+
+  section linux (5.13.2, clang, clang++, false)
+  Set up job :2024-02-02T14:00:23.000+11:00, 2s
+  Run actions/checkout@v4 :2024-02-02T14:00:25.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:26.000+11:00, 85s
+  Install Qt :2024-02-02T14:01:52.000+11:00, 32s
+  Install linuxdeploy :2024-02-02T14:02:24.000+11:00, 1s
+  Build :2024-02-02T14:02:25.000+11:00, 116s
+  Test :2024-02-02T14:04:21.000+11:00, 1s
+  Build AppImage :2024-02-02T14:04:23.000+11:00, 9s
+  Upload AppImage :2024-02-02T14:04:33.000+11:00, 1s
+
+  section mac (5.13.2, gcc-12, g++-12, true)
+  Set up job :2024-02-02T14:07:06.000+11:00, 6s
+  Run actions/checkout@v4 :2024-02-02T14:07:12.000+11:00, 2s
+  Install lcov :2024-02-02T14:07:15.000+11:00, 7s
+  Install Qt :2024-02-02T14:07:23.000+11:00, 44s
+  Build :2024-02-02T14:08:08.000+11:00, 280s
+  Test :2024-02-02T14:12:48.000+11:00, 2s
+  Collate test coverage :2024-02-02T14:12:51.000+11:00, 10s
+  Upload test results :2024-02-02T14:13:02.000+11:00, 1s
+  Report parallel coverage to Codacy :2024-02-02T14:13:04.000+11:00, 4s
+  Report parallel coverage to Coveralls :2024-02-02T14:13:08.000+11:00, 15s
+  Make app bundle :2024-02-02T14:13:24.000+11:00, 14s
+  Upload artifacts :2024-02-02T14:13:38.000+11:00, 5s
+
+  section win (5.13.2, NMake Makefiles, x86)
+  Set up job :2024-02-02T14:04:56.000+11:00, 4s
+  Run actions/checkout@v4 :2024-02-02T14:05:00.000+11:00, 5s
+  Install Qt :2024-02-02T14:05:05.000+11:00, 77s
+  Configure MSVC :2024-02-02T14:06:22.000+11:00, 5s
+  Build :2024-02-02T14:06:27.000+11:00, 129s
+  Test :2024-02-02T14:08:36.000+11:00, 4s
+  Upload test results :2024-02-02T14:08:40.000+11:00, 1s
+  Make portable :2024-02-02T14:08:42.000+11:00, 1s
+  Upload artifacts :2024-02-02T14:08:43.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:08:45.000+11:00, 2s
+  Post Run actions/checkout@v4 :2024-02-02T14:08:48.000+11:00, 1s
+
+  section mac (5.14.2, clang, clang++, false)
+  Set up job :2024-02-02T14:08:55.000+11:00, 5s
+  Run actions/checkout@v4 :2024-02-02T14:09:01.000+11:00, 2s
+  Install lcov :2024-02-02T14:09:03.000+11:00, 10s
+  Install Qt :2024-02-02T14:09:13.000+11:00, 43s
+  Build :2024-02-02T14:09:56.000+11:00, 215s
+  Test :2024-02-02T14:13:31.000+11:00, 4s
+  Make app bundle :2024-02-02T14:13:36.000+11:00, 17s
+  Upload artifacts :2024-02-02T14:13:53.000+11:00, 5s
+
+  section linux (5.13.2, gcc, g++, false)
+  Set up job :2024-02-02T14:00:22.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:00:25.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:26.000+11:00, 105s
+  Install Qt :2024-02-02T14:02:11.000+11:00, 87s
+  Install linuxdeploy :2024-02-02T14:03:39.000+11:00, 1s
+  Build :2024-02-02T14:03:40.000+11:00, 101s
+  Test :2024-02-02T14:05:21.000+11:00, 1s
+  Upload test results :2024-02-02T14:05:22.000+11:00, 1s
+  Build AppImage :2024-02-02T14:05:23.000+11:00, 9s
+  Upload build artifacts :2024-02-02T14:05:33.000+11:00, 1s
+  Upload AppImage :2024-02-02T14:05:34.000+11:00, 2s
+
+  section win (5.13.2, NMake Makefiles, x86-64)
+  Set up job :2024-02-02T14:04:49.000+11:00, 4s
+  Run actions/checkout@v4 :2024-02-02T14:04:53.000+11:00, 4s
+  Install Qt :2024-02-02T14:04:58.000+11:00, 84s
+  Configure MSVC :2024-02-02T14:06:23.000+11:00, 4s
+  Build :2024-02-02T14:06:27.000+11:00, 121s
+  Test :2024-02-02T14:08:29.000+11:00, 3s
+  Upload test results :2024-02-02T14:08:32.000+11:00, 1s
+  Make portable :2024-02-02T14:08:33.000+11:00, 2s
+  Upload artifacts :2024-02-02T14:08:36.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:08:37.000+11:00, 5s
+  Post Run actions/checkout@v4 :2024-02-02T14:08:42.000+11:00, 2s
+
+  section linux (5.13.2, gcc, g++, true)
+  Set up job :2024-02-02T14:00:23.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:00:26.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:27.000+11:00, 99s
+  Install Qt :2024-02-02T14:02:06.000+11:00, 81s
+  Install linuxdeploy :2024-02-02T14:03:27.000+11:00, 1s
+  Build :2024-02-02T14:03:28.000+11:00, 113s
+  Test :2024-02-02T14:05:21.000+11:00, 1s
+  Collate test coverage :2024-02-02T14:05:23.000+11:00, 4s
+  Upload test results :2024-02-02T14:05:27.000+11:00, 1s
+  Report parallel coverage to Codacy :2024-02-02T14:05:29.000+11:00, 2s
+  Report parallel coverage to Coveralls :2024-02-02T14:05:31.000+11:00, 2s
+  Build AppImage :2024-02-02T14:05:33.000+11:00, 8s
+  Upload build artifacts :2024-02-02T14:05:42.000+11:00, 1s
+  Upload AppImage :2024-02-02T14:05:43.000+11:00, 2s
+  Complete job :2024-02-02T14:05:45.000+11:00, 1s
+
+  section mac (5.14.2, gcc-12, g++-12, false)
+  Set up job :2024-02-02T14:09:23.000+11:00, 9s
+  Run actions/checkout@v4 :2024-02-02T14:09:32.000+11:00, 3s
+  Install lcov :2024-02-02T14:09:36.000+11:00, 11s
+  Install Qt :2024-02-02T14:09:47.000+11:00, 72s
+  Build :2024-02-02T14:10:59.000+11:00, 322s
+  Test :2024-02-02T14:16:21.000+11:00, 6s
+  Upload test results :2024-02-02T14:16:28.000+11:00, 1s
+  Make app bundle :2024-02-02T14:16:29.000+11:00, 16s
+  Upload artifacts :2024-02-02T14:16:46.000+11:00, 4s
+  Post Install Qt :2024-02-02T14:16:50.000+11:00, 1s
+  Complete job :2024-02-02T14:16:51.000+11:00, 2s
+
+  section win (5.14.2, MinGW Makefiles, x86-64)
+  Set up job :2024-02-02T14:05:04.000+11:00, 5s
+  Run actions/checkout@v4 :2024-02-02T14:05:09.000+11:00, 6s
+  Install Qt :2024-02-02T14:05:15.000+11:00, 62s
+  Build :2024-02-02T14:06:18.000+11:00, 183s
+  Test :2024-02-02T14:09:22.000+11:00, 2s
+  Upload test results :2024-02-02T14:09:24.000+11:00, 1s
+  Upload artifacts :2024-02-02T14:09:27.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:09:28.000+11:00, 2s
+
+  section mac (5.14.2, gcc-12, g++-12, true)
+  Set up job :2024-02-02T14:09:55.000+11:00, 6s
+  Run actions/checkout@v4 :2024-02-02T14:10:01.000+11:00, 3s
+  Install lcov :2024-02-02T14:10:04.000+11:00, 9s
+  Install Qt :2024-02-02T14:10:14.000+11:00, 87s
+  Build :2024-02-02T14:11:41.000+11:00, 351s
+  Test :2024-02-02T14:17:32.000+11:00, 6s
+  Collate test coverage :2024-02-02T14:17:38.000+11:00, 12s
+  Upload test results :2024-02-02T14:17:50.000+11:00, 2s
+  Report parallel coverage to Codacy :2024-02-02T14:17:52.000+11:00, 3s
+  Report parallel coverage to Coveralls :2024-02-02T14:17:55.000+11:00, 10s
+  Make app bundle :2024-02-02T14:18:06.000+11:00, 15s
+  Upload artifacts :2024-02-02T14:18:21.000+11:00, 6s
+  Post Run actions/checkout@v4 :2024-02-02T14:18:27.000+11:00, 1s
+  Complete job :2024-02-02T14:18:28.000+11:00, 1s
+
+  section linux (5.14.2, clang, clang++, false)
+  Set up job :2024-02-02T14:00:22.000+11:00, 2s
+  Install Tools :2024-02-02T14:00:25.000+11:00, 73s
+  Install Qt :2024-02-02T14:01:38.000+11:00, 34s
+  Build :2024-02-02T14:02:13.000+11:00, 125s
+  Test :2024-02-02T14:04:18.000+11:00, 1s
+  Build AppImage :2024-02-02T14:04:19.000+11:00, 11s
+  Upload AppImage :2024-02-02T14:04:30.000+11:00, 2s
+
+  section win (5.14.2, NMake Makefiles, x86)
+  Set up job :2024-02-02T14:05:25.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:05:28.000+11:00, 5s
+  Install Qt :2024-02-02T14:05:33.000+11:00, 61s
+  Configure MSVC :2024-02-02T14:06:34.000+11:00, 4s
+  Build :2024-02-02T14:06:38.000+11:00, 135s
+  Test :2024-02-02T14:08:54.000+11:00, 3s
+  Upload test results :2024-02-02T14:08:57.000+11:00, 1s
+  Make portable :2024-02-02T14:08:58.000+11:00, 1s
+  Upload artifacts :2024-02-02T14:09:00.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:09:01.000+11:00, 3s
+
+  section mac (5.15.2, clang, clang++, false)
+  Set up job :2024-02-02T14:12:50.000+11:00, 5s
+  Run actions/checkout@v4 :2024-02-02T14:12:56.000+11:00, 3s
+  Install lcov :2024-02-02T14:12:59.000+11:00, 9s
+  Install Qt :2024-02-02T14:13:08.000+11:00, 81s
+  Build :2024-02-02T14:14:30.000+11:00, 235s
+  Test :2024-02-02T14:18:26.000+11:00, 4s
+  Upload test results :2024-02-02T14:18:30.000+11:00, 2s
+  Make app bundle :2024-02-02T14:18:32.000+11:00, 15s
+  Upload artifacts :2024-02-02T14:18:47.000+11:00, 6s
+  Post Run actions/checkout@v4 :2024-02-02T14:18:53.000+11:00, 1s
+  Complete job :2024-02-02T14:18:54.000+11:00, 1s
+
+  section linux (5.14.2, gcc, g++, false)
+  Set up job :2024-02-02T14:00:23.000+11:00, 2s
+  Install Tools :2024-02-02T14:00:26.000+11:00, 76s
+  Install Qt :2024-02-02T14:01:42.000+11:00, 33s
+  Build :2024-02-02T14:02:15.000+11:00, 105s
+  Build AppImage :2024-02-02T14:04:03.000+11:00, 10s
+  Upload AppImage :2024-02-02T14:04:14.000+11:00, 1s
+
+  section win (5.14.2, NMake Makefiles, x86-64)
+  Set up job :2024-02-02T14:05:07.000+11:00, 4s
+  Run actions/checkout@v4 :2024-02-02T14:05:11.000+11:00, 5s
+  Install Qt :2024-02-02T14:05:16.000+11:00, 67s
+  Configure MSVC :2024-02-02T14:06:24.000+11:00, 4s
+  Build :2024-02-02T14:06:28.000+11:00, 119s
+  Test :2024-02-02T14:08:27.000+11:00, 3s
+  Upload test results :2024-02-02T14:08:31.000+11:00, 1s
+  Make portable :2024-02-02T14:08:32.000+11:00, 3s
+  Upload artifacts :2024-02-02T14:08:36.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:08:37.000+11:00, 4s
+  Post Run actions/checkout@v4 :2024-02-02T14:08:41.000+11:00, 1s
+
+  section mac (5.15.2, gcc-12, g++-12, false)
+  Set up job :2024-02-02T14:14:07.000+11:00, 5s
+  Run actions/checkout@v4 :2024-02-02T14:14:12.000+11:00, 2s
+  Install lcov :2024-02-02T14:14:15.000+11:00, 8s
+  Install Qt :2024-02-02T14:14:24.000+11:00, 43s
+  Build :2024-02-02T14:15:08.000+11:00, 245s
+  Test :2024-02-02T14:19:14.000+11:00, 1s
+  Upload test results :2024-02-02T14:19:16.000+11:00, 1s
+  Make app bundle :2024-02-02T14:19:17.000+11:00, 14s
+  Upload artifacts :2024-02-02T14:19:32.000+11:00, 5s
+
+  section linux (5.14.2, gcc, g++, true)
+  Set up job :2024-02-02T14:00:23.000+11:00, 1s
+  Run actions/checkout@v4 :2024-02-02T14:00:24.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:25.000+11:00, 77s
+  Install Qt :2024-02-02T14:01:43.000+11:00, 31s
+  Build :2024-02-02T14:02:15.000+11:00, 117s
+  Test :2024-02-02T14:04:12.000+11:00, 2s
+  Collate test coverage :2024-02-02T14:04:14.000+11:00, 5s
+  Upload test results :2024-02-02T14:04:19.000+11:00, 1s
+  Report parallel coverage to Codacy :2024-02-02T14:04:20.000+11:00, 1s
+  Report parallel coverage to Coveralls :2024-02-02T14:04:22.000+11:00, 1s
+  Build AppImage :2024-02-02T14:04:23.000+11:00, 9s
+  Upload build artifacts :2024-02-02T14:04:32.000+11:00, 1s
+  Upload AppImage :2024-02-02T14:04:33.000+11:00, 1s
+
+  section win (5.15.2, MinGW Makefiles, x86-64)
+  Set up job :2024-02-02T14:05:32.000+11:00, 4s
+  Run actions/checkout@v4 :2024-02-02T14:05:36.000+11:00, 5s
+  Install Qt :2024-02-02T14:05:41.000+11:00, 69s
+  Build :2024-02-02T14:06:50.000+11:00, 200s
+  Test :2024-02-02T14:10:11.000+11:00, 2s
+  Upload test results :2024-02-02T14:10:14.000+11:00, 1s
+  Make portable :2024-02-02T14:10:15.000+11:00, 1s
+  Upload artifacts :2024-02-02T14:10:16.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:10:18.000+11:00, 2s
+  Post Run actions/checkout@v4 :2024-02-02T14:10:20.000+11:00, 2s
+
+  section mac (5.15.2, gcc-12, g++-12, true)
+  Set up job :2024-02-02T14:14:19.000+11:00, 5s
+  Run actions/checkout@v4 :2024-02-02T14:14:24.000+11:00, 1s
+  Install lcov :2024-02-02T14:14:26.000+11:00, 7s
+  Install Qt :2024-02-02T14:14:34.000+11:00, 40s
+  Build :2024-02-02T14:15:15.000+11:00, 222s
+  Test :2024-02-02T14:18:58.000+11:00, 1s
+  Collate test coverage :2024-02-02T14:19:00.000+11:00, 7s
+  Upload test results :2024-02-02T14:19:08.000+11:00, 1s
+  Report parallel coverage to Codacy :2024-02-02T14:19:10.000+11:00, 3s
+  Report parallel coverage to Coveralls :2024-02-02T14:19:14.000+11:00, 10s
+  Make app bundle :2024-02-02T14:19:25.000+11:00, 12s
+  Upload artifacts :2024-02-02T14:19:38.000+11:00, 4s
+  Complete job :2024-02-02T14:19:42.000+11:00, 1s
+
+  section linux (5.15.2, clang, clang++, false)
+  Set up job :2024-02-02T14:00:21.000+11:00, 2s
+  Run actions/checkout@v4 :2024-02-02T14:00:23.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:24.000+11:00, 63s
+  Install Qt :2024-02-02T14:01:28.000+11:00, 37s
+  Build :2024-02-02T14:02:05.000+11:00, 129s
+  Test :2024-02-02T14:04:14.000+11:00, 2s
+  Build AppImage :2024-02-02T14:04:17.000+11:00, 10s
+  Upload AppImage :2024-02-02T14:04:27.000+11:00, 1s
+
+  section win (5.15.2, NMake Makefiles, x86)
+  Set up job :2024-02-02T14:05:44.000+11:00, 4s
+  Run actions/checkout@v4 :2024-02-02T14:05:48.000+11:00, 4s
+  Install Qt :2024-02-02T14:05:53.000+11:00, 71s
+  Configure MSVC :2024-02-02T14:07:04.000+11:00, 10s
+  Build :2024-02-02T14:07:14.000+11:00, 154s
+  Test :2024-02-02T14:09:49.000+11:00, 5s
+  Upload test results :2024-02-02T14:09:55.000+11:00, 1s
+  Make portable :2024-02-02T14:09:56.000+11:00, 2s
+  Upload artifacts :2024-02-02T14:09:58.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:10:00.000+11:00, 2s
+  Post Run actions/checkout@v4 :2024-02-02T14:10:03.000+11:00, 1s
+
+  section mac (6.2.4, clang, clang++, false)
+  Set up job :2024-02-02T14:20:02.000+11:00, 6s
+  Run actions/checkout@v4 :2024-02-02T14:20:09.000+11:00, 2s
+  Install lcov :2024-02-02T14:20:11.000+11:00, 10s
+  Install Qt :2024-02-02T14:20:21.000+11:00, 49s
+  Build :2024-02-02T14:21:11.000+11:00, 414s
+  Test :2024-02-02T14:28:06.000+11:00, 1s
+  Upload test results :2024-02-02T14:28:07.000+11:00, 1s
+  Make app bundle :2024-02-02T14:28:08.000+11:00, 13s
+  Upload artifacts :2024-02-02T14:28:21.000+11:00, 11s
+
+  section linux (5.15.2, gcc, g++, false)
+  Set up job :2024-02-02T14:00:22.000+11:00, 2s
+  Run actions/checkout@v4 :2024-02-02T14:00:24.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:25.000+11:00, 83s
+  Install Qt :2024-02-02T14:01:48.000+11:00, 32s
+  Build :2024-02-02T14:02:20.000+11:00, 110s
+  Test :2024-02-02T14:04:10.000+11:00, 1s
+  Build AppImage :2024-02-02T14:04:12.000+11:00, 10s
+  Upload AppImage :2024-02-02T14:04:23.000+11:00, 1s
+
+  section win (5.15.2, NMake Makefiles, x86-64)
+  Set up job :2024-02-02T14:05:35.000+11:00, 4s
+  Run actions/checkout@v4 :2024-02-02T14:05:39.000+11:00, 4s
+  Install Qt :2024-02-02T14:05:44.000+11:00, 60s
+  Configure MSVC :2024-02-02T14:06:44.000+11:00, 6s
+  Build :2024-02-02T14:06:51.000+11:00, 129s
+  Test :2024-02-02T14:09:01.000+11:00, 3s
+  Upload test results :2024-02-02T14:09:04.000+11:00, 2s
+  Make portable :2024-02-02T14:09:06.000+11:00, 1s
+  Upload artifacts :2024-02-02T14:09:08.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:09:09.000+11:00, 5s
+  Post Run actions/checkout@v4 :2024-02-02T14:09:14.000+11:00, 1s
+
+  section mac (6.3.2, clang, clang++, false)
+  Set up job :2024-02-02T14:20:13.000+11:00, 6s
+  Run actions/checkout@v4 :2024-02-02T14:20:20.000+11:00, 1s
+  Install lcov :2024-02-02T14:20:22.000+11:00, 8s
+  Install Qt :2024-02-02T14:20:31.000+11:00, 41s
+  Build :2024-02-02T14:21:13.000+11:00, 417s
+  Test :2024-02-02T14:28:11.000+11:00, 1s
+  Upload test results :2024-02-02T14:28:12.000+11:00, 1s
+  Make app bundle :2024-02-02T14:28:14.000+11:00, 13s
+  Upload artifacts :2024-02-02T14:28:27.000+11:00, 12s
+
+  section linux (5.15.2, gcc, g++, true)
+  Set up job :2024-02-02T14:00:24.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:00:27.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:29.000+11:00, 98s
+  Install Qt :2024-02-02T14:02:08.000+11:00, 43s
+  Install linuxdeploy :2024-02-02T14:02:52.000+11:00, 1s
+  Build :2024-02-02T14:02:53.000+11:00, 120s
+  Test :2024-02-02T14:04:53.000+11:00, 1s
+  Collate test coverage :2024-02-02T14:04:54.000+11:00, 5s
+  Upload test results :2024-02-02T14:04:59.000+11:00, 1s
+  Report parallel coverage to Codacy :2024-02-02T14:05:00.000+11:00, 2s
+  Report parallel coverage to Coveralls :2024-02-02T14:05:02.000+11:00, 2s
+  Build AppImage :2024-02-02T14:05:05.000+11:00, 10s
+  Upload build artifacts :2024-02-02T14:05:15.000+11:00, 2s
+  Upload AppImage :2024-02-02T14:05:17.000+11:00, 2s
+
+  section win (6.2.4, MinGW Makefiles, x86-64)
+  Set up job :2024-02-02T14:05:47.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:05:50.000+11:00, 6s
+  Install Qt :2024-02-02T14:05:56.000+11:00, 47s
+  Build :2024-02-02T14:06:43.000+11:00, 282s
+  Test :2024-02-02T14:11:26.000+11:00, 1s
+  Upload test results :2024-02-02T14:11:28.000+11:00, 1s
+  Make portable :2024-02-02T14:11:29.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:11:30.000+11:00, 2s
+
+  section mac (6.4.3, clang, clang++, false)
+  Set up job :2024-02-02T14:24:46.000+11:00, 6s
+  Run actions/checkout@v4 :2024-02-02T14:24:52.000+11:00, 3s
+  Install lcov :2024-02-02T14:24:55.000+11:00, 13s
+  Install Qt :2024-02-02T14:25:09.000+11:00, 40s
+  Build :2024-02-02T14:25:50.000+11:00, 355s
+  Test :2024-02-02T14:31:46.000+11:00, 1s
+  Upload test results :2024-02-02T14:31:48.000+11:00, 1s
+  Make app bundle :2024-02-02T14:31:49.000+11:00, 12s
+  Upload artifacts :2024-02-02T14:32:02.000+11:00, 32s
+  Complete job :2024-02-02T14:32:35.000+11:00, 1s
+
+  section linux (6.2.4, clang, clang++, false)
+  Set up job :2024-02-02T14:00:23.000+11:00, 2s
+  Run actions/checkout@v4 :2024-02-02T14:00:25.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:26.000+11:00, 73s
+  Install Qt :2024-02-02T14:01:39.000+11:00, 28s
+  Build :2024-02-02T14:02:07.000+11:00, 194s
+  Test :2024-02-02T14:05:22.000+11:00, 1s
+  Build AppImage :2024-02-02T14:05:24.000+11:00, 8s
+  Upload AppImage :2024-02-02T14:05:33.000+11:00, 1s
+  Post Run actions/checkout@v4 :2024-02-02T14:05:34.000+11:00, 1s
+
+  section win (6.2.4, NMake Makefiles, x86-64)
+  Set up job :2024-02-02T14:05:51.000+11:00, 2s
+  Run actions/checkout@v4 :2024-02-02T14:05:53.000+11:00, 6s
+  Install Qt :2024-02-02T14:06:00.000+11:00, 47s
+  Configure MSVC :2024-02-02T14:06:47.000+11:00, 8s
+  Build :2024-02-02T14:06:55.000+11:00, 267s
+  Test :2024-02-02T14:11:23.000+11:00, 6s
+  Upload test results :2024-02-02T14:11:29.000+11:00, 1s
+  Make portable :2024-02-02T14:11:30.000+11:00, 2s
+  Upload artifacts (portable) :2024-02-02T14:11:34.000+11:00, 1s
+  Post Run actions/checkout@v4 :2024-02-02T14:11:36.000+11:00, 1s
+
+  section mac (6.5.3, clang, clang++, false)
+  Set up job :2024-02-02T14:24:54.000+11:00, 6s
+  Run actions/checkout@v4 :2024-02-02T14:25:00.000+11:00, 3s
+  Install lcov :2024-02-02T14:25:03.000+11:00, 10s
+  Install Qt :2024-02-02T14:25:13.000+11:00, 49s
+  Build :2024-02-02T14:26:03.000+11:00, 655s
+  Test :2024-02-02T14:36:59.000+11:00, 4s
+  Upload test results :2024-02-02T14:37:04.000+11:00, 1s
+  Make app bundle :2024-02-02T14:37:05.000+11:00, 15s
+  Upload artifacts :2024-02-02T14:37:21.000+11:00, 9s
+
+  section linux (6.2.4, gcc, g++, false)
+  Set up job :2024-02-02T14:00:24.000+11:00, 2s
+  Run actions/checkout@v4 :2024-02-02T14:00:26.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:27.000+11:00, 88s
+  Install Qt :2024-02-02T14:01:55.000+11:00, 34s
+  Build :2024-02-02T14:02:29.000+11:00, 167s
+  Test :2024-02-02T14:05:16.000+11:00, 1s
+  Upload test results :2024-02-02T14:05:17.000+11:00, 1s
+  Build AppImage :2024-02-02T14:05:18.000+11:00, 9s
+  Upload AppImage :2024-02-02T14:05:28.000+11:00, 1s
+
+  section win (6.2.4, NMake Makefiles, arm64)
+  Set up job :2024-02-02T14:05:50.000+11:00, 4s
+  Run actions/checkout@v4 :2024-02-02T14:05:55.000+11:00, 3s
+  Install host Qt for cross-compilation :2024-02-02T14:05:58.000+11:00, 44s
+  Install Qt :2024-02-02T14:06:42.000+11:00, 30s
+  Configure MSVC :2024-02-02T14:07:13.000+11:00, 4s
+  Build :2024-02-02T14:07:17.000+11:00, 277s
+  Upload artifacts :2024-02-02T14:11:55.000+11:00, 1s
+  Post Run actions/checkout@v4 :2024-02-02T14:11:57.000+11:00, 1s
+
+  section mac (6.6.1, clang, clang++, false)
+  Set up job :2024-02-02T14:24:56.000+11:00, 5s
+  Run actions/checkout@v4 :2024-02-02T14:25:01.000+11:00, 4s
+  Install lcov :2024-02-02T14:25:05.000+11:00, 10s
+  Install Qt :2024-02-02T14:25:15.000+11:00, 99s
+  Build :2024-02-02T14:26:54.000+11:00, 681s
+  Test :2024-02-02T14:38:15.000+11:00, 5s
+  Upload test results :2024-02-02T14:38:20.000+11:00, 1s
+  Make app bundle :2024-02-02T14:38:21.000+11:00, 16s
+  Upload artifacts :2024-02-02T14:38:37.000+11:00, 10s
+  Post Run actions/checkout@v4 :2024-02-02T14:38:47.000+11:00, 1s
+
+  section linux (6.2.4, gcc, g++, true)
+  Set up job :2024-02-02T14:00:22.000+11:00, 2s
+  Run actions/checkout@v4 :2024-02-02T14:00:24.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:25.000+11:00, 85s
+  Install Qt :2024-02-02T14:01:50.000+11:00, 27s
+  Install linuxdeploy :2024-02-02T14:02:17.000+11:00, 1s
+  Build :2024-02-02T14:02:18.000+11:00, 178s
+  Test :2024-02-02T14:05:16.000+11:00, 1s
+  Collate test coverage :2024-02-02T14:05:18.000+11:00, 6s
+  Report parallel coverage to Codacy :2024-02-02T14:05:25.000+11:00, 1s
+  Report parallel coverage to Coveralls :2024-02-02T14:05:26.000+11:00, 1s
+  Build AppImage :2024-02-02T14:05:27.000+11:00, 9s
+  Upload AppImage :2024-02-02T14:05:37.000+11:00, 1s
+
+  section win (6.3.2, MinGW Makefiles, x86-64)
+  Set up job :2024-02-02T14:05:53.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:05:56.000+11:00, 12s
+  Install Qt :2024-02-02T14:06:08.000+11:00, 62s
+  Build :2024-02-02T14:07:10.000+11:00, 268s
+  Test :2024-02-02T14:11:39.000+11:00, 1s
+  Upload test results :2024-02-02T14:11:41.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:11:43.000+11:00, 2s
+  Post Run actions/checkout@v4 :2024-02-02T14:11:45.000+11:00, 1s
+
+  section mac (6.7.0, clang, clang++, false)
+  Set up job :2024-02-02T14:28:54.000+11:00, 6s
+  Run actions/checkout@v4 :2024-02-02T14:29:00.000+11:00, 3s
+  Install lcov :2024-02-02T14:29:03.000+11:00, 9s
+  Install Qt :crit, 2024-02-02T14:29:13.000+11:00, 103s
+  Complete job :2024-02-02T14:30:56.000+11:00, 1s
+
+  section linux (6.3.2, clang, clang++, false)
+  Set up job :2024-02-02T14:00:24.000+11:00, 1s
+  Run actions/checkout@v4 :2024-02-02T14:00:25.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:26.000+11:00, 81s
+  Install Qt :2024-02-02T14:01:47.000+11:00, 27s
+  Build :2024-02-02T14:02:15.000+11:00, 193s
+  Test :2024-02-02T14:05:29.000+11:00, 1s
+  Build AppImage :2024-02-02T14:05:30.000+11:00, 10s
+  Upload AppImage :2024-02-02T14:05:40.000+11:00, 2s
+
+  section win (6.3.2, NMake Makefiles, x86-64)
+  Set up job :2024-02-02T14:06:55.000+11:00, 4s
+  Run actions/checkout@v4 :2024-02-02T14:06:59.000+11:00, 6s
+  Install Qt :2024-02-02T14:07:05.000+11:00, 58s
+  Configure MSVC :2024-02-02T14:08:03.000+11:00, 12s
+  Build :2024-02-02T14:08:15.000+11:00, 263s
+  Test :2024-02-02T14:12:39.000+11:00, 4s
+  Upload test results :2024-02-02T14:12:44.000+11:00, 1s
+  Make portable :2024-02-02T14:12:45.000+11:00, 2s
+  Upload artifacts (portable) :2024-02-02T14:12:47.000+11:00, 2s
+  Post Run actions/checkout@v4 :2024-02-02T14:12:50.000+11:00, 1s
+
+  section mac (6.7.0, gcc-12, g++-12, false)
+
+
+  section linux (6.3.2, gcc, g++, false)
+  Set up job :2024-02-02T14:00:25.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:00:28.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:30.000+11:00, 94s
+  Install Qt :2024-02-02T14:02:05.000+11:00, 33s
+  Install linuxdeploy :2024-02-02T14:02:38.000+11:00, 2s
+  Build :2024-02-02T14:02:40.000+11:00, 156s
+  Upload test results :2024-02-02T14:05:17.000+11:00, 1s
+  Build AppImage :2024-02-02T14:05:18.000+11:00, 10s
+  Upload build artifacts :2024-02-02T14:05:28.000+11:00, 1s
+  Upload AppImage :2024-02-02T14:05:29.000+11:00, 2s
+
+  section win (6.3.2, NMake Makefiles, arm64)
+  Set up job :2024-02-02T14:06:00.000+11:00, 2s
+  Run actions/checkout@v4 :2024-02-02T14:06:02.000+11:00, 6s
+  Install host Qt for cross-compilation :2024-02-02T14:06:08.000+11:00, 54s
+  Install Qt :2024-02-02T14:07:02.000+11:00, 25s
+  Configure MSVC :2024-02-02T14:07:28.000+11:00, 10s
+  Build :2024-02-02T14:07:38.000+11:00, 277s
+  Post Run actions/checkout@v4 :2024-02-02T14:12:17.000+11:00, 1s
+
+  section mac (6.7.0, gcc-12, g++-12, true)
+  Set up job :2024-02-02T14:32:46.000+11:00, 10s
+  Run actions/checkout@v4 :2024-02-02T14:32:56.000+11:00, 3s
+  Install lcov :2024-02-02T14:33:00.000+11:00, 13s
+  Install Qt :crit, 2024-02-02T14:33:14.000+11:00, 179s
+
+  section linux (6.3.2, gcc, g++, true)
+  Set up job :2024-02-02T14:00:25.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:00:28.000+11:00, 2s
+  Install Tools :2024-02-02T14:00:30.000+11:00, 114s
+  Install Qt :2024-02-02T14:02:24.000+11:00, 36s
+  Install linuxdeploy :2024-02-02T14:03:00.000+11:00, 1s
+  Build :2024-02-02T14:03:01.000+11:00, 181s
+  Test :2024-02-02T14:06:02.000+11:00, 2s
+  Collate test coverage :2024-02-02T14:06:04.000+11:00, 6s
+  Report parallel coverage to Codacy :2024-02-02T14:06:12.000+11:00, 2s
+  Report parallel coverage to Coveralls :2024-02-02T14:06:14.000+11:00, 2s
+  Build AppImage :2024-02-02T14:06:16.000+11:00, 10s
+  Upload build artifacts :2024-02-02T14:06:26.000+11:00, 1s
+  Upload AppImage :2024-02-02T14:06:27.000+11:00, 2s
+
+  section win (6.4.3, MinGW Makefiles, x86-64)
+  Set up job :2024-02-02T14:06:55.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:06:58.000+11:00, 6s
+  Install Qt :2024-02-02T14:07:05.000+11:00, 50s
+  Build :2024-02-02T14:07:55.000+11:00, 255s
+  Test :2024-02-02T14:12:11.000+11:00, 3s
+  Upload test results :2024-02-02T14:12:14.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:12:16.000+11:00, 2s
+  Post Run actions/checkout@v4 :2024-02-02T14:12:18.000+11:00, 1s
+
+  section linux (6.4.3, clang, clang++, false)
+  Set up job :2024-02-02T14:00:24.000+11:00, 2s
+  Run actions/checkout@v4 :2024-02-02T14:00:26.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:27.000+11:00, 97s
+  Install Qt :2024-02-02T14:02:04.000+11:00, 32s
+  Install linuxdeploy :2024-02-02T14:02:36.000+11:00, 2s
+  Build :2024-02-02T14:02:38.000+11:00, 182s
+  Test :2024-02-02T14:05:41.000+11:00, 1s
+  Upload test results :2024-02-02T14:05:42.000+11:00, 1s
+  Build AppImage :2024-02-02T14:05:44.000+11:00, 9s
+  Upload build artifacts :2024-02-02T14:05:53.000+11:00, 1s
+  Upload AppImage :2024-02-02T14:05:55.000+11:00, 2s
+
+  section win (6.4.3, NMake Makefiles, x86-64)
+  Set up job :2024-02-02T14:07:05.000+11:00, 5s
+  Run actions/checkout@v4 :2024-02-02T14:07:10.000+11:00, 10s
+  Install Qt :2024-02-02T14:07:20.000+11:00, 60s
+  Configure MSVC :2024-02-02T14:08:20.000+11:00, 11s
+  Build :2024-02-02T14:08:31.000+11:00, 230s
+  Test :2024-02-02T14:12:22.000+11:00, 4s
+  Upload test results :2024-02-02T14:12:26.000+11:00, 1s
+  Make portable :2024-02-02T14:12:27.000+11:00, 2s
+  Upload artifacts :2024-02-02T14:12:29.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:12:31.000+11:00, 3s
+
+  section linux (6.4.3, gcc, g++, false)
+  Set up job :2024-02-02T14:00:25.000+11:00, 2s
+  Run actions/checkout@v4 :2024-02-02T14:00:27.000+11:00, 1s
+  Install Tools :2024-02-02T14:00:28.000+11:00, 64s
+  Install Qt :2024-02-02T14:01:33.000+11:00, 30s
+  Build :2024-02-02T14:02:04.000+11:00, 158s
+  Test :2024-02-02T14:04:42.000+11:00, 1s
+  Build AppImage :2024-02-02T14:04:44.000+11:00, 9s
+  Upload build artifacts :2024-02-02T14:04:53.000+11:00, 1s
+  Upload AppImage :2024-02-02T14:04:54.000+11:00, 1s
+  Post Run actions/checkout@v4 :2024-02-02T14:04:55.000+11:00, 1s
+
+  section win (6.4.3, NMake Makefiles, arm64)
+  Set up job :2024-02-02T14:07:03.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:07:06.000+11:00, 6s
+  Install host Qt for cross-compilation :2024-02-02T14:07:12.000+11:00, 46s
+  Install Qt :2024-02-02T14:07:59.000+11:00, 65s
+  Configure MSVC :2024-02-02T14:09:05.000+11:00, 9s
+  Build :2024-02-02T14:09:14.000+11:00, 229s
+  Upload artifacts :2024-02-02T14:13:03.000+11:00, 1s
+  Post Run actions/checkout@v4 :2024-02-02T14:13:05.000+11:00, 1s
+  Post Install Qt :2024-02-02T14:13:04.000+11:00, 1s
+
+  section linux (6.4.3, gcc, g++, true)
+  Set up job :2024-02-02T14:01:57.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:02:00.000+11:00, 1s
+  Install Tools :2024-02-02T14:02:01.000+11:00, 90s
+  Install Qt :2024-02-02T14:03:32.000+11:00, 40s
+  Build :2024-02-02T14:04:14.000+11:00, 174s
+  Test :2024-02-02T14:07:08.000+11:00, 1s
+  Collate test coverage :2024-02-02T14:07:09.000+11:00, 6s
+  Upload test results :2024-02-02T14:07:16.000+11:00, 1s
+  Report parallel coverage to Codacy :2024-02-02T14:07:17.000+11:00, 2s
+  Report parallel coverage to Coveralls :2024-02-02T14:07:19.000+11:00, 2s
+  Build AppImage :2024-02-02T14:07:21.000+11:00, 10s
+  Upload build artifacts :2024-02-02T14:07:31.000+11:00, 1s
+  Upload AppImage :2024-02-02T14:07:32.000+11:00, 3s
+
+  section win (6.5.3, MinGW Makefiles, x86-64)
+  Set up job :2024-02-02T14:07:34.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:07:37.000+11:00, 6s
+  Install Qt :2024-02-02T14:07:43.000+11:00, 69s
+  Build :2024-02-02T14:08:52.000+11:00, 281s
+  Test :2024-02-02T14:13:34.000+11:00, 3s
+  Upload test results :2024-02-02T14:13:38.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:13:40.000+11:00, 2s
+  Post Run actions/checkout@v4 :2024-02-02T14:13:42.000+11:00, 1s
+
+  section win (6.5.3, NMake Makefiles, x86-64)
+  Set up job :2024-02-02T14:07:51.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:07:54.000+11:00, 10s
+  Install Qt :2024-02-02T14:08:04.000+11:00, 89s
+  Configure MSVC :2024-02-02T14:09:33.000+11:00, 10s
+  Build :2024-02-02T14:09:44.000+11:00, 252s
+  Test :2024-02-02T14:13:57.000+11:00, 4s
+  Make portable :2024-02-02T14:14:03.000+11:00, 2s
+  Upload artifacts (portable) :2024-02-02T14:14:05.000+11:00, 3s
+  Post Run actions/checkout@v4 :2024-02-02T14:14:08.000+11:00, 1s
+
+  section linux (6.5.3, clang, clang++, false)
+  Set up job :2024-02-02T14:04:06.000+11:00, 4s
+  Run actions/checkout@v4 :2024-02-02T14:04:10.000+11:00, 1s
+  Install Tools :2024-02-02T14:04:11.000+11:00, 88s
+  Install Qt :2024-02-02T14:05:40.000+11:00, 35s
+  Install linuxdeploy :2024-02-02T14:06:16.000+11:00, 1s
+  Build :2024-02-02T14:06:17.000+11:00, 207s
+  Test :2024-02-02T14:09:44.000+11:00, 1s
+  Build AppImage :2024-02-02T14:09:47.000+11:00, 10s
+  Upload build artifacts :2024-02-02T14:09:57.000+11:00, 1s
+  Upload AppImage :2024-02-02T14:09:58.000+11:00, 2s
+
+  section win (6.5.3, NMake Makefiles, arm64)
+  Set up job :2024-02-02T14:07:02.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:07:05.000+11:00, 11s
+  Install host Qt for cross-compilation :2024-02-02T14:07:16.000+11:00, 44s
+  Install Qt :2024-02-02T14:08:00.000+11:00, 56s
+  Configure MSVC :2024-02-02T14:08:57.000+11:00, 7s
+  Build :2024-02-02T14:09:04.000+11:00, 247s
+  Post Run actions/checkout@v4 :2024-02-02T14:13:13.000+11:00, 1s
+
+  section linux (6.5.3, gcc, g++, false)
+  Set up job :2024-02-02T14:04:10.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:04:13.000+11:00, 1s
+  Install Tools :2024-02-02T14:04:14.000+11:00, 95s
+  Install Qt :2024-02-02T14:05:49.000+11:00, 34s
+  Install linuxdeploy :2024-02-02T14:06:23.000+11:00, 2s
+  Build :2024-02-02T14:06:25.000+11:00, 162s
+  Test :2024-02-02T14:09:07.000+11:00, 2s
+  Upload test results :2024-02-02T14:09:09.000+11:00, 1s
+  Build AppImage :2024-02-02T14:09:10.000+11:00, 9s
+  Upload build artifacts :2024-02-02T14:09:19.000+11:00, 2s
+  Upload AppImage :2024-02-02T14:09:21.000+11:00, 3s
+
+  section win (6.6.1, MinGW Makefiles, x86-64)
+  Set up job :2024-02-02T14:08:54.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:08:57.000+11:00, 6s
+  Install Qt :2024-02-02T14:09:03.000+11:00, 89s
+  Build :2024-02-02T14:10:33.000+11:00, 235s
+  Test :2024-02-02T14:14:29.000+11:00, 2s
+  Upload test results :2024-02-02T14:14:31.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:14:34.000+11:00, 1s
+  Post Run actions/checkout@v4 :2024-02-02T14:14:35.000+11:00, 1s
+
+  section linux (6.5.3, gcc, g++, true)
+  Set up job :2024-02-02T14:04:14.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:04:17.000+11:00, 1s
+  Install Tools :2024-02-02T14:04:18.000+11:00, 73s
+  Install Qt :2024-02-02T14:05:31.000+11:00, 38s
+  Install linuxdeploy :2024-02-02T14:06:10.000+11:00, 1s
+  Build :2024-02-02T14:06:11.000+11:00, 184s
+  Test :2024-02-02T14:09:15.000+11:00, 1s
+  Collate test coverage :2024-02-02T14:09:16.000+11:00, 6s
+  Upload test results :2024-02-02T14:09:22.000+11:00, 1s
+  Report parallel coverage to Codacy :2024-02-02T14:09:23.000+11:00, 3s
+  Report parallel coverage to Coveralls :2024-02-02T14:09:26.000+11:00, 2s
+  Build AppImage :2024-02-02T14:09:28.000+11:00, 9s
+  Upload build artifacts :2024-02-02T14:09:38.000+11:00, 1s
+  Upload AppImage :2024-02-02T14:09:39.000+11:00, 2s
+
+  section linux (6.6.1, clang, clang++, false)
+  Set up job :2024-02-02T14:04:19.000+11:00, 1s
+  Run actions/checkout@v4 :2024-02-02T14:04:20.000+11:00, 1s
+  Install Tools :2024-02-02T14:04:21.000+11:00, 83s
+  Install Qt :2024-02-02T14:05:45.000+11:00, 30s
+  Install linuxdeploy :2024-02-02T14:06:15.000+11:00, 1s
+  Build :2024-02-02T14:06:16.000+11:00, 184s
+  Test :2024-02-02T14:09:20.000+11:00, 1s
+  Build AppImage :2024-02-02T14:09:22.000+11:00, 9s
+  Upload AppImage :2024-02-02T14:09:31.000+11:00, 2s
+
+  section win (6.6.1, NMake Makefiles, x86-64)
+  Set up job :2024-02-02T14:08:55.000+11:00, 4s
+  Run actions/checkout@v4 :2024-02-02T14:08:59.000+11:00, 5s
+  Install Qt :2024-02-02T14:09:04.000+11:00, 120s
+  Configure MSVC :2024-02-02T14:11:04.000+11:00, 6s
+  Build :2024-02-02T14:11:10.000+11:00, 245s
+  Test :2024-02-02T14:15:16.000+11:00, 3s
+  Upload test results :2024-02-02T14:15:19.000+11:00, 1s
+  Make portable :2024-02-02T14:15:20.000+11:00, 2s
+  Upload artifacts :2024-02-02T14:15:23.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:15:24.000+11:00, 3s
+  Post Run actions/checkout@v4 :2024-02-02T14:15:28.000+11:00, 1s
+
+  section linux (6.6.1, gcc, g++, false)
+  Set up job :2024-02-02T14:04:23.000+11:00, 2s
+  Install Tools :2024-02-02T14:04:26.000+11:00, 58s
+  Install Qt :2024-02-02T14:05:24.000+11:00, 39s
+  Build :2024-02-02T14:06:04.000+11:00, 164s
+  Test :2024-02-02T14:08:48.000+11:00, 1s
+  Build AppImage :2024-02-02T14:08:51.000+11:00, 9s
+  Upload build artifacts :2024-02-02T14:09:00.000+11:00, 1s
+  Upload AppImage :2024-02-02T14:09:01.000+11:00, 1s
+
+  section win (6.6.1, NMake Makefiles, arm64)
+  Set up job :2024-02-02T14:08:55.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:08:58.000+11:00, 5s
+  Install host Qt for cross-compilation :2024-02-02T14:09:03.000+11:00, 48s
+  Install Qt :2024-02-02T14:09:51.000+11:00, 33s
+  Configure MSVC :2024-02-02T14:10:24.000+11:00, 5s
+  Build :2024-02-02T14:10:29.000+11:00, 238s
+  Upload artifacts :2024-02-02T14:14:28.000+11:00, 1s
+  Post Run actions/checkout@v4 :2024-02-02T14:14:30.000+11:00, 1s
+
+  section linux (6.6.1, gcc, g++, true)
+  Set up job :2024-02-02T14:04:25.000+11:00, 2s
+  Run actions/checkout@v4 :2024-02-02T14:04:27.000+11:00, 1s
+  Install Tools :2024-02-02T14:04:28.000+11:00, 78s
+  Install Qt :2024-02-02T14:05:46.000+11:00, 30s
+  Build :2024-02-02T14:06:17.000+11:00, 173s
+  Test :2024-02-02T14:09:11.000+11:00, 1s
+  Collate test coverage :2024-02-02T14:09:12.000+11:00, 6s
+  Report parallel coverage to Codacy :2024-02-02T14:09:19.000+11:00, 1s
+  Build AppImage :2024-02-02T14:09:22.000+11:00, 8s
+  Upload AppImage :2024-02-02T14:09:31.000+11:00, 1s
+
+  section linux (6.7.0, clang, clang++, false)
+  Set up job :2024-02-02T14:04:33.000+11:00, 3s
+  Run actions/checkout@v4 :2024-02-02T14:04:36.000+11:00, 2s
+  Install Tools :2024-02-02T14:04:38.000+11:00, 92s
+  Install Qt :crit, 2024-02-02T14:06:10.000+11:00, 35s
+
+  section win (6.7.0, MinGW Makefiles, x86-64)
+  Set up job :2024-02-02T14:08:56.000+11:00, 5s
+  Run actions/checkout@v4 :2024-02-02T14:09:01.000+11:00, 6s
+  Install Qt :2024-02-02T14:09:07.000+11:00, 105s
+  Build :2024-02-02T14:10:52.000+11:00, 241s
+  Test :2024-02-02T14:14:54.000+11:00, 2s
+  Upload test results :2024-02-02T14:14:56.000+11:00, 1s
+  Upload artifacts :2024-02-02T14:14:58.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:15:00.000+11:00, 2s
+
+  section linux (6.7.0, gcc, g++, false)
+  Set up job :2024-02-02T14:04:34.000+11:00, 2s
+  Run actions/checkout@v4 :2024-02-02T14:04:36.000+11:00, 1s
+  Install Tools :2024-02-02T14:04:37.000+11:00, 75s
+  Install Qt :crit, 2024-02-02T14:05:52.000+11:00, 29s
+
+  section win (6.7.0, NMake Makefiles, x86-64)
+  Set up job :2024-02-02T14:09:17.000+11:00, 4s
+  Run actions/checkout@v4 :2024-02-02T14:09:21.000+11:00, 5s
+  Install Qt :2024-02-02T14:09:26.000+11:00, 97s
+  Configure MSVC :2024-02-02T14:11:03.000+11:00, 5s
+  Build :2024-02-02T14:11:08.000+11:00, 232s
+  Test :2024-02-02T14:15:01.000+11:00, 4s
+  Upload test results :2024-02-02T14:15:05.000+11:00, 1s
+  Make portable :2024-02-02T14:15:07.000+11:00, 1s
+  Upload artifacts :2024-02-02T14:15:09.000+11:00, 1s
+  Upload artifacts (portable) :2024-02-02T14:15:10.000+11:00, 3s
+  Post Run actions/checkout@v4 :2024-02-02T14:15:14.000+11:00, 1s
+
+  section linux (6.7.0, gcc, g++, true)
+  Set up job :2024-02-02T14:04:36.000+11:00, 2s
+  Run actions/checkout@v4 :2024-02-02T14:04:38.000+11:00, 1s
+  Install Tools :2024-02-02T14:04:39.000+11:00, 79s
+  Install Qt :crit, 2024-02-02T14:05:59.000+11:00, 33s
+
+  section win (6.7.0, NMake Makefiles, arm64)
+  Set up job :2024-02-02T14:09:02.000+11:00, 5s
+  Run actions/checkout@v4 :2024-02-02T14:09:07.000+11:00, 7s
+  Install host Qt for cross-compilation :2024-02-02T14:09:14.000+11:00, 57s
+  Install Qt :2024-02-02T14:10:12.000+11:00, 53s
+  Configure MSVC :2024-02-02T14:11:06.000+11:00, 8s
+  Build :2024-02-02T14:11:14.000+11:00, 245s
+  Upload artifacts :2024-02-02T14:15:20.000+11:00, 1s
+  Complete job :2024-02-02T14:15:22.000+11:00, 1s
+
+  section collate-test-results
+
+
+  section update-tests-on-doc-branch
+

@@ -1,4 +1,4 @@
-name: Static Analysis
+name: Test
 
 on: [push, pull_request]
 
@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - run: shellcheck --enable=all --norc ww.sh test/test.sh
+    - run: ./test/test.sh
