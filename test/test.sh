@@ -17,5 +17,10 @@ while IFS= read -d '' -r fileName; do
   export TEST_RUN_FILE="${fileName}" TEST_JOBS_FILE="${fileName%.json}-jobs.json"
   "${PROJECT_SOURCE_DIR}/ww.sh" "${owner}" "${repo}" "${runId}" "${attemptNumber}" >| "${fileName%.json}.out"
   diff --color=auto --unified "${fileName%.json}".{txt,out}
+  [[ ! -e "${fileName%.json}.pre" ]] || {
+    echo "Test: ${testName}-pre"
+    PRE_MERMAID_10_8=true "${PROJECT_SOURCE_DIR}/ww.sh" "${owner}" "${repo}" "${runId}" "${attemptNumber}" >| "${fileName%.json}.out"
+    diff --color=auto --unified "${fileName%.json}".{pre,out}
+  }
 done < <(find "${TEST_DATA_DIR}" -name '*.json' -not -name '*-jobs.json' -print0 || :)
 echo 'All tests passed.'
