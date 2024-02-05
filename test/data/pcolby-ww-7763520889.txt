@@ -6,5 +6,5 @@ gantt
   dateFormat YYYY-MM-DDTHH:MM:SS.SSSZ
   %% https://github.com/pcolby/ww/actions/runs/7763520889
 
-  section #;#;check#;#;
+  section #;#;:check#;#;:
   #;#;Set up job#;#; :2024-02-03T12:20:33.000+11:00, 1s

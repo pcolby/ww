@@ -34,9 +34,9 @@ readonly API_PATH="/repos/${owner}/${repo}/actions/runs/${runId}${attemptNumber:
 [[ -v TEST_RUN_FILE ]] && workflowRun=$(cat "${TEST_RUN_FILE}") || workflowRun=$(gh api "${API_PATH}")
 #jq . <<< "$workflowRun" >| "./test/data/$owner-$repo-$runId${attemptNumber:+-${attemptNumber}}.json"
 jq -er --arg displayMode "${DISPLAY_MODE}" --arg unsafeChars "${PRE_MERMAID_10_8:+;#}" "$(cat <<-"-" || :
-	def safe(s): if ($unsafeChars|length) > 0 then s|gsub("[;#]";"") else s end;
+	def safeTitle(s): if ($unsafeChars|length) > 0 then s|gsub("[;#]";"") else s end;
 	"---\ndisplayMode: " + $displayMode + "\n---\ngantt\n" +
-	"  title " + safe(.name) + " (run " + (.id|tostring) + ", attempt " + (.run_attempt|tostring) + ")\n" +
+	"  title " + safeTitle(.name) + " (run " + (.id|tostring) + ", attempt " + (.run_attempt|tostring) + ")\n" +
 	"  dateFormat YYYY-MM-DDTHH:MM:SS.SSSZ\n  %% "+ .html_url
 	-
 	)" <<< "${workflowRun}"
@@ -44,15 +44,16 @@ jq -er --arg displayMode "${DISPLAY_MODE}" --arg unsafeChars "${PRE_MERMAID_10_8
 # Generate Mermaid Gantt chart sections.
 [[ -v TEST_JOBS_FILE ]] && workflowRunJobs=$(cat "${TEST_JOBS_FILE}") || workflowRunJobs=$(gh api "${API_PATH}/jobs" --paginate)
 #jq . <<< "$workflowRunJobs" >| "./test/data/$owner-$repo-$runId${attemptNumber:+-${attemptNumber}}-jobs.json"
-jq -er --argjson minStepDuration "${MIN_STEP_DURATION}" --arg unsafeChars ":${PRE_MERMAID_10_8:+;#}" "$(cat <<-"-" || :
+jq -er --argjson minStepDuration "${MIN_STEP_DURATION}" --arg unsafeChars "${PRE_MERMAID_10_8:+;#}" "$(cat <<-"-" || :
 	def isodate(d): d|strptime("%FT%T.000%z")|mktime;
 	def isodiff(d1;d2): isodate(d2)-isodate(d1);
-	def safe(s): s|gsub("["+$unsafeChars+"]";"");
-	.jobs[]|"\n  section " + safe(.name) + "\n" + ([
+	def safeSectionName(s): if ($unsafeChars|length) > 0 then s|gsub("[:;#]";"") else s end;
+	def safeTaskName(s): s|gsub("[:"+$unsafeChars+"]";"");
+	.jobs[]|"\n  section " + safeSectionName(.name) + "\n" + ([
 	  .steps[]|select(.completed_at)|
 	  (.+{duration:isodiff(.started_at;.completed_at)})|
 	  select(.duration>=$minStepDuration or .conclusion=="failed")|
-	  "  " + safe(.name) + " :" +
+	  "  " + safeTaskName(.name) + " :" +
 	  if .conclusion != "success" then "crit, " else "" end +
 	  .started_at + ", " + (.duration|tostring) + "s"
 	]|join("\n"))
