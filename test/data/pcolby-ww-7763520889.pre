@@ -5,6 +5,7 @@ gantt
   title Test (run 7763520889, attempt 1)
   dateFormat YYYY-MM-DDTHH:MM:SS.SSSZ
   %% https://github.com/pcolby/ww/actions/runs/7763520889
+  %% duration: 0 secs elapsed, 2 secs total.
 
   section check
   Set up job :2024-02-03T12:20:33.000+11:00, 1s

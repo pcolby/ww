@@ -5,6 +5,7 @@ gantt
   title Build (run 7694544723, attempt 1)
   dateFormat YYYY-MM-DDTHH:MM:SS.SSSZ
   %% https://github.com/pcolby/nfc-quick-settings/actions/runs/7694544723
+  %% duration: 19 secs elapsed, 9.3 mins (558 secs) total.
 
   section build (ubuntu-latest)
   Set up job :2024-01-29T21:22:45.000+11:00, 2s
