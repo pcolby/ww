@@ -4,6 +4,7 @@ displayMode: compact
 gantt
   title Build and Test (run 7750792226, attempt 1)
   dateFormat YYYY-MM-DDTHH:MM:SS.SSSZ
+  axisFormat %X
   %% https://github.com/pcolby/dokit/actions/runs/7750792226
   %% duration: 34 mins (2022 secs) elapsed, 8.6 hrs (30860 secs) total.
   %% duration: 34 mins (2056 secs) elapsed, 16 mins (969 secs) total.

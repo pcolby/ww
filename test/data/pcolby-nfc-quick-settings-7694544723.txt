@@ -4,6 +4,7 @@ displayMode: compact
 gantt
   title Build (run 7694544723, attempt 1)
   dateFormat YYYY-MM-DDTHH:MM:SS.SSSZ
+  axisFormat %X
   %% https://github.com/pcolby/nfc-quick-settings/actions/runs/7694544723
   %% duration: 19 secs elapsed, 9.3 mins (558 secs) total.
 

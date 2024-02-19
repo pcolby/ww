@@ -5,6 +5,7 @@
 set -o errexit -o noclobber -o nounset -o pipefail
 shopt -s inherit_errexit
 
+: "${AXIS_FORMAT:=%X}" # Mermaid's default is %Y-%m-%d, but %X makes more sense (as a default) for Workflow runs.
 : "${DISPLAY_MODE:=compact}"
 : "${MIN_STEP_DURATION:=1}"
 
@@ -35,11 +36,15 @@ readonly API_PATH="/repos/${owner}/${repo}/actions/runs/${runId}${attemptNumber:
 #jq . <<< "$workflowRun" >| "./test/data/$owner-$repo-$runId${attemptNumber:+-${attemptNumber}}.json"
 
 # Generate Mermaid Gantt chart header.
-jq -er --arg displayMode "${DISPLAY_MODE}" --arg unsafeChars "${PRE_MERMAID_10_8:+;#}" "$(cat <<-"-" || :
+jq -er \
+  --arg axisFormat "${AXIS_FORMAT}" \
+  --arg displayMode "${DISPLAY_MODE}" \
+  --arg unsafeChars "${PRE_MERMAID_10_8:+;#}" \
+  "$(cat <<-"-" || :
 	def safeTitle(s): if ($unsafeChars|length) > 0 then s|gsub("["+$unsafeChars+"]";"") else s end;
 	"---\ndisplayMode: " + $displayMode + "\n---\ngantt\n" +
 	"  title " + safeTitle(.name) + " (run " + (.id|tostring) + ", attempt " + (.run_attempt|tostring) + ")\n" +
-	"  dateFormat YYYY-MM-DDTHH:MM:SS.SSSZ\n  %% "+ .html_url
+	"  dateFormat YYYY-MM-DDTHH:MM:SS.SSSZ\n  axisFormat " + $axisFormat + "\n  %% " + .html_url
 	-
 	)" <<< "${workflowRun}"
 

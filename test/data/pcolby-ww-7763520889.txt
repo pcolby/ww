@@ -4,6 +4,7 @@ displayMode: compact
 gantt
   title #;#;Test#;#; (run 7763520889, attempt 1)
   dateFormat YYYY-MM-DDTHH:MM:SS.SSSZ
+  axisFormat %X
   %% https://github.com/pcolby/ww/actions/runs/7763520889
   %% duration: 0 secs elapsed, 2 secs total.
 
